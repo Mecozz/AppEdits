@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Digital Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: black;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            overflow: auto; /* Allow vertical scrolling if content exceeds viewport */
+            min-height: 100vh; /* Ensure body can grow beyond viewport if needed */
+        }
+        .menu-container {
+            width: 90%;
+            margin: auto;
+            padding-top: 20px;
+            padding-bottom: 20px; /* Add cushion at the bottom */
+        }
+        .menu-header {
+            font-size: 2.8em; /* Increased from 2.7em */
+            font-weight: bold;
+            color: red;
+            background: yellow;
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu-header div {
+            flex: 1;
+            text-align: center;
+        }
+        .menu-table {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu-column {
+            width: 45%;
+            text-align: left;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            font-size: 2em; /* Increased from 1.9em */
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            color: white;
+        }
+        .size-header th {
+            background-color: black;
+            font-weight: bold;
+            text-align: center; /* Ensure centering */
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        td:first-child {
+            text-align: left;
+            padding-right: 30px; /* Buffer between item name and price */
+        }
+        #left-menu .price {
+            padding-right: 30px; /* Reduced gap */
+        }
+        #right-menu .price {
+            padding-right: 10px; /* Ensure alignment consistency */
+        }
+        .price {
+            text-align: right;
+            width: 80px;
+        }
+        .image-row {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between; /* Spread images evenly across the width */
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        .image-container {
+            width: 18%; /* Adjusted for 5 images */
+            flex: 1;
+            text-align: center;
+            height: 170px; /* Reduced to match smaller images */
+            display: flex;
+            align-items: center; /* Center image vertically */
+            justify-content: center; /* Center image horizontally */
+        }
+        .menu-image {
+            width: 100%;
+            max-width: 170px; /* Reduced from 180px to make images smaller */
+            max-height: 170px; /* Reduced from 180px to make images smaller */
+            height: auto;
+            object-fit: contain;
+            transition: opacity 0.5s ease; /* Smooth transition for slideshow */
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            font-size: 1.5em;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+        @media (max-width: 768px) {
+            table {
+                font-size: 1.7em; /* Increased from 1.6em */
+            }
+            .menu-header {
+                font-size: 2.3em; /* Increased from 2.2em */
+            }
+            td:first-child {
+                padding-right: 20px;
+            }
+            #left-menu .price {
+                padding-right: 20px;
+            }
+            #right-menu .price {
+                padding-right: 5px;
+            }
+            .image-container {
+                height: 136px; /* Adjusted for smaller screens */
+            }
+            .menu-image {
+                max-width: 136px; /* Adjusted from 144px */
+                max-height: 136px; /* Adjusted from 144px */
+            }
+        }
+        @media (max-width: 480px) {
+            table {
+                font-size: 1.5em; /* Increased from 1.4em */
+            }
+            .menu-header {
+                font-size: 1.8em; /* Increased from 1.7em */
+            }
+            td:first-child {
+                padding-right: 15px;
+            }
+            #left-menu .price {
+                padding-right: 15px;
+            }
+            #right-menu .price {
+                padding-right: 5px;
+            }
+            .image-container {
+                height: 102px; /* Adjusted for very small screens */
+            }
+            .menu-image {
+                max-width: 102px; /* Adjusted from 108px */
+                max-height: 102px; /* Adjusted from 108px */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+            <div id="left-category"></div>
+            <div id="right-category"></div>
+        </div>
+        <div class="menu-table">
+            <div class="menu-column" id="left-menu"></div>
+            <div class="menu-column" id="right-menu"></div>
+        </div>
+        <div class="image-row" id="imageRow">
+            <!-- Image containers will be populated here -->
+        </div>
+    </div>
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+    <script>
+        function fetchWithTimeout(url, timeout = 5000) {
+            return Promise.race([
+                fetch(url),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('Request timed out')), timeout))
+            ]);
+        }
+
+        async function checkImage(url) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(url);
+                img.onerror = () => resolve(null);
+                img.src = url;
+            });
+        }
+
+        fetchWithTimeout('https://raw.githubusercontent.com/Mecozz/Menu/main/MenuLeft.json?t=' + new Date().getTime())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(async data => {
+                console.log('JSON loaded successfully:', data);
+
+                // Set category headers
+                document.getElementById('left-category').innerText = data.header.left_category || "PIZZA";
+                document.getElementById('right-category').innerText = data.header.right_category || "CALZONES";
+
+                // Populate left menu (PIZZA)
+                let leftMenu = `
+                    <table>
+                        <tr class="size-header">
+                            <th></th>
+                            <th>LG 14"</th>
+                            <th>REG 10"</th>
+                        </tr>
+                        ${data.left_items && data.left_items.length > 0 ? data.left_items.map(item => `
+                            <tr class="item-row">
+                                <td>${item.name}</td>
+                                <td class="price">${item.lg_price || '-'}</td>
+                                <td class="price">${item.reg_price || '-'}</td>
+                            </tr>
+                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'}
+                    </table>
+                `;
+                document.getElementById('left-menu').innerHTML = leftMenu;
+
+                // Populate right menu (CALZONES)
+                let rightMenu = `
+                    <table>
+                        <tr class="size-header">
+                            <th></th>
+                            <th>LG 14"</th>
+                            <th>REG 10"</th>
+                        </tr>
+                        ${data.right_items && data.right_items.length > 0 ? data.right_items.map(item => `
+                            <tr class="item-row">
+                                <td>${item.name}</td>
+                                <td class="price">${item.lg_price || '-'}</td>
+                                <td class="price">${item.reg_price || '-'}</td>
+                            </tr>
+                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'}
+                    </table>
+                `;
+                document.getElementById('right-menu').innerHTML = rightMenu;
+
+                // Populate five image slots with cycling images
+                const imageRow = document.getElementById('imageRow');
+                let imageGroups = data.images || [];
+                const rotationSpeed = data.config?.image_rotation_speed || 5000; // Default to 5 seconds if not specified
+
+                if (imageGroups.length > 0) {
+                    // Create five image containers, each with a single img element
+                    let containersHTML = '';
+                    for (let i = 0; i < Math.min(5, imageGroups.length); i++) {
+                        containersHTML += `
+                            <div class="image-container">
+                                <img id="menuImage${i}" class="menu-image" alt="Menu Image">
+                            </div>
+                        `;
+                    }
+                    imageRow.innerHTML = containersHTML;
+
+                    // Validate and populate images for each container
+                    for (let i = 0; i < Math.min(5, imageGroups.length); i++) {
+                        const subArray = imageGroups[i];
+                        let validSubImages = [];
+                        for (let url of subArray) {
+                            if (url) {
+                                const isValid = await checkImage(url);
+                                if (isValid) {
+                                    validSubImages.push(isValid);
+                                } else {
+                                    console.log(`Skipping invalid image: ${url}`);
+                                }
+                            }
+                        }
+
+                        if (validSubImages.length > 0) {
+                            // Set initial image and start cycling
+                            const imageElement = document.getElementById(`menuImage${i}`);
+                            imageElement.src = validSubImages[0]; // Initial image
+                            startSlideshow(i, validSubImages, rotationSpeed);
+                        } else {
+                            const container = document.querySelector(`#imageRow .image-container:nth-child(${i + 1})`);
+                            container.innerHTML = '<p>No valid images</p>';
+                        }
+                    }
+                } else {
+                    imageRow.innerHTML = '<p>No valid images available</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading MenuLeft.json:', error);
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.style.display = 'block';
+                errorMessage.innerText = `Failed to load menu data: ${error.message}. Check the console for details or ensure MenuLeft.json is accessible at https://raw.githubusercontent.com/Mecozz/Menu/main/MenuLeft.json.`;
+            });
+
+        function startSlideshow(containerIndex, validImages, rotationSpeed) {
+            let currentImageIndex = 0;
+            const imageElement = document.getElementById(`menuImage${containerIndex}`);
+            const slideshowInterval = setInterval(() => {
+                if (imageElement) {
+                    imageElement.style.opacity = '0'; // Fade out
+                    setTimeout(() => {
+                        // Move to the next valid image
+                        currentImageIndex = (currentImageIndex + 1) % validImages.length;
+                        imageElement.src = validImages[currentImageIndex];
+                        imageElement.style.opacity = '1'; // Fade in
+                    }, 500); // Match transition duration
+                }
+            }, rotationSpeed); // Use rotation speed from JSON
+
+            // Store the interval ID on the container to allow cleanup if needed
+            imageElement.dataset.intervalId = slideshowInterval;
+        }
+
+        window.onbeforeunload = () => {
+            // Clean up intervals on page unload
+            const containers = document.querySelectorAll('.image-container img');
+            containers.forEach(img => {
+                const intervalId = img.dataset.intervalId;
+                if (intervalId) clearInterval(intervalId);
+            });
+        };
+    </script>
+</body>
+</html>
