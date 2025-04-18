@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jimmy's House of Pizza - Digital Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+    }
+    .menu-container {
+      width: 98%;
+      margin: auto;
+      padding-top: 5px;
+    }
+    .title-container {
+      display: flex;
+      justify-content: center; /* Center the entire layout */
+      align-items: center;
+      width: 100%;
+      margin-bottom: 10px;
+      position: relative; /* Allow absolute positioning of the image */
+    }
+    .title-img-container {
+      position: absolute; /* Position the image independently */
+      left: 10%; /* Approximate centering between left edge and "J" */
+      transform: translateX(-50%); /* Center the image within its position */
+      width: 200px; /* Match the image width */
+    }
+    .title-img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 20px; /* Rounded edges */
+    }
+    .menu-title {
+      font-size: 5em; /* Large size to maximize */
+      font-weight: bold;
+      color: red;
+      text-shadow: 4px 4px 6px rgba(255, 0, 0, 0.7);
+      letter-spacing: 2px;
+      flex: 0 0 auto; /* Prevent title from stretching */
+      height: 200px; /* Match image height */
+      line-height: 1; /* Adjust line height to fit */
+      margin: 0; /* Remove default margin */
+      white-space: nowrap; /* Prevent text wrapping */
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the title text */
+    }
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: yellow;
+      padding: 15px;
+      font-size: 2em;
+      font-weight: bold;
+      width: 100%;
+    }
+    .menu-header span {
+      color: red;
+      flex: 1;
+      text-align: center;
+    }
+    .menu-table {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .menu-column {
+      width: 49%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.6em;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    .price {
+      text-align: right;
+    }
+    .image-slider {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 15px;
+      width: 100%;
+      padding-bottom: 10px;
+      overflow-x: auto; /* Allow horizontal scrolling if images exceed width */
+      white-space: nowrap; /* Prevent wrapping of images */
+    }
+    .image-slider img {
+      width: 25%; /* Reduced from 28% to fit better, still wider than original 22% */
+      height: 150px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-right: 10px; /* Add small gap between images */
+    }
+    .image-slider img:last-child {
+      margin-right: 0; /* Remove margin on the last image */
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-container">
+    <div class="title-container">
+      <div class="title-img-container">
+        <img id="left-title-img" class="title-img">
+      </div>
+      <h1 class="menu-title" id="menu-title"></h1>
+    </div>
+    <div class="menu-header">
+      <span id="category"></span>
+      <span id="note"></span>
+    </div>
+    <div class="menu-table">
+      <div class="menu-column">
+        <table>
+          <thead><tr><th>Item</th><th class="price">LG 12"</th><th class="price">REG 8"</th></tr></thead>
+          <tbody id="left-items"></tbody>
+        </table>
+      </div>
+      <div class="menu-column">
+        <table>
+          <thead><tr><th>Item</th><th class="price">LG 12"</th><th class="price">REG 8"</th></tr></thead>
+          <tbody id="right-items"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="image-slider">
+      <img id="img0"><img id="img1"><img id="img2"><img id="img3"><img id="img4">
+    </div>
+  </div>
+
+<script>
+fetch('https://raw.githubusercontent.com/Mecozz/Menu/main/menu.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('menu-title').textContent = data.title;
+    document.getElementById('category').textContent = data.header.category;
+    document.getElementById('note').textContent = data.header.note;
+    
+    // Set only the left title image from JSON
+    document.getElementById('left-title-img').src = data.titleImages.left;
+
+    const half = Math.ceil(data.items.length / 2);
+    const leftItems = data.items.slice(0, half);
+    const rightItems = data.items.slice(half);
+
+    document.getElementById('left-items').innerHTML = leftItems.map(item =>
+      `<tr>
+        <td>${item.name}</td>
+        <td class="price">${item.lg_price}</td>
+        <td class="price">${item.reg_price}</td>
+      </tr>`
+    ).join('');
+
+    document.getElementById('right-items').innerHTML = rightItems.map(item =>
+      `<tr>
+        <td>${item.name}</td>
+        <td class="price">${item.lg_price}</td>
+        <td class="price">${item.reg_price}</td>
+      </tr>`
+    ).join('');
+
+    const imageSets = data.images;
+    const currentIndexes = [0,0,0,0,0];
+
+    function updateImages() {
+      imageSets.forEach((set, idx) => {
+        document.getElementById(`img${idx}`).src = set[currentIndexes[idx]];
+        currentIndexes[idx] = (currentIndexes[idx] + 1) % set.length;
+      });
+    }
+
+    updateImages();
+    setInterval(updateImages, 5000);
+  })
+  .catch(err => console.error('Error fetching menu:', err));
+</script>
+</body>
+</html>
