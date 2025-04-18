@@ -200,7 +200,7 @@
             });
         }
 
-        fetchWithTimeout('https://raw.githubusercontent.com/Mecozz/Menu/main/lefttv.json?t=' + new Date().getTime())
+        fetchWithTimeout('https://raw.githubusercontent.com/Mecozz/AppEdits/main/lefttv.json?t=' + new Date().getTime())
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
