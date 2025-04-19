@@ -7,7 +7,7 @@
   "titleImages": {
     "left": "https://raw.githubusercontent.com/Mecozz/Menu/main/JimmyAnna.png"
   },
-  "items": [
+  "middle_items": [
     {
       "id": "meatballs",
       "name": "MEATBALLS",
