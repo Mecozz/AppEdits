@@ -5,7 +5,7 @@
     "note": "* ALL PRICES INCLUDE 9% TAXES *"
   },
   "titleImages": {
-    "left": "https://raw.githubusercontent.com/Mecozz/Menu/main/JimmyAnna.png"
+    "left": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/JimmyAnna.png"
   },
   "hotColdSubs": [
     {
@@ -13,126 +13,126 @@
       "name": "MEATBALLS",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/meatballs_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/meatballs_sub.jpg"
     },
     {
       "id": "sausage_sub",
       "name": "SAUSAGE",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/sausage_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/sausage_sub.jpg"
     },
     {
       "id": "ham_cheese_sub",
       "name": "HAM & CHEESE",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/ham_cheese_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/ham_cheese_sub.jpg"
     },
     {
       "id": "salami_sub",
       "name": "SALAMI",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/salami_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/salami_sub.jpg"
     },
     {
       "id": "tuna_sub",
       "name": "TUNA",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/tuna_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/tuna_sub.jpg"
     },
     {
       "id": "cheeseburger_sub",
       "name": "CHEESEBURGER",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/cheeseburger_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/cheeseburger_sub.jpg"
     },
     {
       "id": "blt_sub",
       "name": "B.L.T",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/blt_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/blt_sub.jpg"
     },
     {
       "id": "pastrami_sub",
       "name": "PASTRAMI",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/pastrami_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/pastrami_sub.jpg"
     },
     {
       "id": "gyros_sub",
       "name": "GYROS",
       "lg_price": 13.75,
       "reg_price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/gyros_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/gyros_sub.jpg"
     },
     {
       "id": "veal_parm_sub",
       "name": "VEAL PARMESAN",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/veal_parm_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/veal_parm_sub.jpg"
     },
     {
       "id": "chicken_parm_sub",
       "name": "CHICKEN PARMESAN",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/chicken_parm_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/chicken_parm_sub.jpg"
     },
     {
       "id": "vegetarian_sub",
       "name": "VEGETARIAN",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/vegetarian_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/vegetarian_sub.jpg"
     },
     {
       "id": "roast_beef_sub",
       "name": "ROAST BEEF",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/roast_beef_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/roast_beef_sub.jpg"
     },
     {
       "id": "turkey_sub",
       "name": "TURKEY",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/turkey_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/turkey_sub.jpg"
     },
     {
       "id": "sausage_meatballs_sub",
       "name": "SAUSAGE & MEATBALLS",
       "lg_price": 13.75,
       "reg_price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/sausage_meatballs_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/sausage_meatballs_sub.jpg"
     },
     {
       "id": "combo_italian_sub",
       "name": "COMBO ITALIAN",
       "lg_price": 13.75,
       "reg_price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/combo_italian_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/combo_italian_sub.jpg"
     },
     {
       "id": "lamb_grinder_sub",
       "name": "LAMB GRINDER",
       "lg_price": 13.75,
       "reg_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/lamb_grinder_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/lamb_grinder_sub.jpg"
     },
     {
       "id": "extra_cheese_sub",
       "name": "EXTRA CHEESE",
       "lg_price": 2.50,
       "reg_price": 2.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/hot_cold_subs/extra_cheese_sub.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/hot_cold_subs/extra_cheese_sub.jpg"
     }
   ]
 }
