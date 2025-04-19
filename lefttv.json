@@ -12,70 +12,70 @@
       "name": "PLAIN",
       "lg_price": 13.00,
       "reg_price": 9.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/plain_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/plain_pizza.jpg"
     },
     {
       "id": "onions_pizza",
       "name": "ONIONS",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/onions_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/onions_pizza.jpg"
     },
     {
       "id": "peppers_pizza",
       "name": "PEPPERS",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/peppers_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/peppers_pizza.jpg"
     },
     {
       "id": "hamburg_pizza",
       "name": "HAMBURG",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/hamburg_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/hamburg_pizza.jpg"
     },
     {
       "id": "pepperoni_pizza",
       "name": "PEPPERONI",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/pepperoni_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/pepperoni_pizza.jpg"
     },
     {
       "id": "ham_pizza",
       "name": "HAM",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/ham_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/ham_pizza.jpg"
     },
     {
       "id": "mushroom_pizza",
       "name": "MUSHROOM",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/mushroom_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/mushroom_pizza.jpg"
     },
     {
       "id": "sausage_pizza",
       "name": "SAUSAGE",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/sausage_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/sausage_pizza.jpg"
     },
     {
       "id": "meatballs_pizza",
       "name": "MEATBALLS",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/meatballs_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/meatballs_pizza.jpg"
     },
     {
       "id": "bacon_pizza",
       "name": "BACON",
       "lg_price": 16.00,
       "reg_price": 12.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/pizza/bacon_pizza.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/pizza/bacon_pizza.jpg"
     }
   ],
   "calzones": [
@@ -84,84 +84,84 @@
       "name": "PLAIN",
       "lg_price": 16.75,
       "reg_price": 13.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/plain_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/plain_calzone.jpg"
     },
     {
       "id": "1item_calzone",
       "name": "1 ITEM",
       "lg_price": 18.75,
       "reg_price": 16.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/1item_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/1item_calzone.jpg"
     },
     {
       "id": "2items_calzone",
       "name": "2 ITEMS",
       "lg_price": 22.00,
       "reg_price": 17.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/2items_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/2items_calzone.jpg"
     },
     {
       "id": "steak_special_calzone",
       "name": "STEAK SPECIAL",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/steak_special_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/steak_special_calzone.jpg"
     },
     {
       "id": "chicken_calzone",
       "name": "CHICKEN",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/chicken_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/chicken_calzone.jpg"
     },
     {
       "id": "spinach_feta_calzone",
       "name": "SPINACH & FETA",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/spinach_feta_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/spinach_feta_calzone.jpg"
     },
     {
       "id": "meatball_calzone",
       "name": "MEATBALL",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/meatball_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/meatball_calzone.jpg"
     },
     {
       "id": "ham_pineapple_calzone",
       "name": "HAM & PINEAPPLE",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/ham_pineapple_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/ham_pineapple_calzone.jpg"
     },
     {
       "id": "house_special_calzone",
       "name": "HOUSE SPECIAL",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/house_special_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/house_special_calzone.jpg"
     },
     {
       "id": "bacon_gyro_calzone",
       "name": "BACON OR GYRO",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/bacon_gyro_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/bacon_gyro_calzone.jpg"
     },
     {
       "id": "meat_lovers_calzone",
       "name": "MEAT LOVERS",
       "lg_price": 23.00,
       "reg_price": 16.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/meat_lovers_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/meat_lovers_calzone.jpg"
     },
     {
       "id": "extra_cheese_calzone",
       "name": "EXTRA CHEESE",
       "lg_price": 3.00,
       "reg_price": 2.50,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/calzones/extra_cheese_calzone.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/calzones/extra_cheese_calzone.jpg"
     }
   ]
 }
