@@ -7,6 +7,7 @@
     "bottom_middle_category": "DINNERS"
   },
   "images": [
+    [
     "https://raw.githubusercontent.com/Mecozz/Menu/main/Xrings.png",
     "https://raw.githubusercontent.com/Mecozz/Menu/main/YChickenFriesPlate.png",
     "https://raw.githubusercontent.com/Mecozz/Menu/main/YStreaakCheeseSub.png",
@@ -27,6 +28,7 @@
     "https://raw.githubusercontent.com/Mecozz/Menu/main/ZSpaghettiMeatballs2.png",
     "https://raw.githubusercontent.com/Mecozz/Menu/main/YMozSticks.png",
     "https://raw.githubusercontent.com/Mecozz/Menu/main/YFriesOR.png"
+    ]
   ],
   "left_items": [
     {
