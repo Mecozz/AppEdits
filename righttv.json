@@ -1,6 +1,6 @@
 {
   "titleImages": {
-    "left": "https://raw.githubusercontent.com/Mecozz/Menu/main/JimmyAnna.png"
+    "left": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/JimmyAnna.png"
   },
   "header": {
     "steakSubs": "STEAK SUBS",
@@ -15,63 +15,63 @@
       "name": "CHEESE STEAK",
       "lg_price": 13.00,
       "reg_price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/cheese_steak.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/cheese_steak.jpg"
     },
     {
       "id": "pepper_steak",
       "name": "PEPPER STEAK",
       "lg_price": 13.75,
       "reg_price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/pepper_steak.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/pepper_steak.jpg"
     },
     {
       "id": "onion_steak",
       "name": "ONION STEAK",
       "lg_price": 13.75,
       "reg_price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/onion_steak.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/onion_steak.jpg"
     },
     {
       "id": "mushroom_steak",
       "name": "MUSHROOM STEAK",
       "lg_price": 13.75,
       "reg_price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/mushroom_steak.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/mushroom_steak.jpg"
     },
     {
       "id": "two_items",
       "name": "2 ITEMS",
       "lg_price": 14.75,
       "reg_price": 13.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/two_items.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/two_items.jpg"
     },
     {
       "id": "three_items",
       "name": "3 ITEMS",
       "lg_price": 14.75,
       "reg_price": 13.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/three_items.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/three_items.jpg"
     },
     {
       "id": "special_steak",
       "name": "SPECIAL STEAK",
       "lg_price": 14.75,
       "reg_price": 13.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/special_steak.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/special_steak.jpg"
     },
     {
       "id": "extra_cheese",
       "name": "EXTRA CHEESE",
       "lg_price": 2.50,
       "reg_price": 2.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/extra_cheese.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/extra_cheese.jpg"
     },
     {
       "id": "extra_steak",
       "name": "EXTRA STEAK",
       "lg_price": 5.00,
       "reg_price": 3.50,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/steak_subs/extra_steak.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/steak_subs/extra_steak.jpg"
     }
   ],
   "salads": [
@@ -79,61 +79,61 @@
       "id": "tossed_salad",
       "name": "TOSSED SALAD",
       "price": 9.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/tossed_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/tossed_salad.jpg"
     },
     {
       "id": "antipasto_salad",
       "name": "ANTIPASTO SALAD",
       "price": 13.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/antipasto_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/antipasto_salad.jpg"
     },
     {
       "id": "greek_salad",
       "name": "GREEK SALAD",
       "price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/greek_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/greek_salad.jpg"
     },
     {
       "id": "chefs_salad",
       "name": "CHEF'S SALAD",
       "price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/chefs_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/chefs_salad.jpg"
     },
     {
       "id": "tuna_salad",
       "name": "TUNA SALAD",
       "price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/tuna_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/tuna_salad.jpg"
     },
     {
       "id": "turkey_salad",
       "name": "TURKEY SALAD",
       "price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/turkey_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/turkey_salad.jpg"
     },
     {
       "id": "chicken_salad",
       "name": "CHICKEN SALAD",
       "price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/chicken_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/chicken_salad.jpg"
     },
     {
       "id": "buffalo_chicken_salad",
       "name": "BUFFALO CHICKEN SALAD",
       "price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/buffalo_chicken_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/buffalo_chicken_salad.jpg"
     },
     {
       "id": "grilled_chicken_salad",
       "name": "GRILLED CHICKEN SALAD",
       "price": 11.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/grilled_chicken_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/grilled_chicken_salad.jpg"
     },
     {
       "id": "lamb_steak_salad",
       "name": "LAMB OR STEAK SALAD",
       "price": 13.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/salads/lamb_steak_salad.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/salads/lamb_steak_salad.jpg"
     }
   ],
   "sideOrders": [
@@ -142,98 +142,98 @@
       "name": "BAKLAVA",
       "lg_price": 3.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/baklava.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/baklava.jpg"
     },
     {
       "id": "garlic_plain",
       "name": "GARLIC BREAD-PLAIN",
       "lg_price": 4.50,
       "sm_price": 4.50,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/garlic_plain.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/garlic_plain.jpg"
     },
     {
       "id": "with_cheese",
       "name": "W/CHEESE",
       "lg_price": 5.75,
       "sm_price": 5.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/with_cheese.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/with_cheese.jpg"
     },
     {
       "id": "fries",
       "name": "FRENCH FRIES",
       "lg_price": 7.00,
       "sm_price": 5.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/fries.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/fries.jpg"
     },
     {
       "id": "onion_rings",
       "name": "ONION RINGS",
       "lg_price": 7.00,
       "sm_price": 5.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/onion_rings.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/onion_rings.jpg"
     },
     {
       "id": "rice_pilaf",
       "name": "RICE PILAF",
       "lg_price": 6.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/rice_pilaf.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/rice_pilaf.jpg"
     },
     {
       "id": "greek_pita",
       "name": "GREEK PITA",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/greek_pita.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/greek_pita.jpg"
     },
     {
       "id": "fried_mushrooms",
       "name": "FRIED MUSHROOMS",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/fried_mushrooms.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/fried_mushrooms.jpg"
     },
     {
       "id": "mozz_sticks",
       "name": "MOZZARELLA STICKS",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/mozz_sticks.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/mozz_sticks.jpg"
     },
     {
       "id": "chicken_wings",
       "name": "CHICKEN WINGS",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/chicken_wings.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/chicken_wings.jpg"
     },
     {
       "id": "jalapeno_poppers",
       "name": "JALAPENO POPPERS",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/jalapeno_poppers.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/jalapeno_poppers.jpg"
     },
     {
       "id": "chicken_tenders",
       "name": "CHICKEN TENDERS",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/chicken_tenders.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/chicken_tenders.jpg"
     },
     {
       "id": "buffalo_tenders",
       "name": "BUFFALO TENDERS",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/buffalo_tenders.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/buffalo_tenders.jpg"
     },
     {
       "id": "fried_ravioli",
       "name": "FRIED RAVIOLI",
       "lg_price": 9.75,
       "sm_price": null,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/side_orders/fried_ravioli.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/side_orders/fried_ravioli.jpg"
     }
   ],
   "italianDishes": [
@@ -241,31 +241,31 @@
       "id": "spaghetti_sauce",
       "name": "SPAGHETTI & SAUCE",
       "price": 10.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/italian_dishes/spaghetti_sauce.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/italian_dishes/spaghetti_sauce.jpg"
     },
     {
       "id": "with_meatballs",
       "name": "W/MEATBALLS",
       "price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/italian_dishes/with_meatballs.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/italian_dishes/with_meatballs.jpg"
     },
     {
       "id": "with_sausage",
       "name": "W/SAUSAGE",
       "price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/italian_dishes/with_sausage.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/italian_dishes/with_sausage.jpg"
     },
     {
       "id": "combo",
       "name": "COMBO",
       "price": 12.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/italian_dishes/combo.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/italian_dishes/combo.jpg"
     },
     {
       "id": "with_chicken_or_veal",
       "name": "W/CHICKEN OR VEAL",
       "price": 11.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/italian_dishes/with_chicken_or_veal.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/italian_dishes/with_chicken_or_veal.jpg"
     }
   ],
   "dinners": [
@@ -273,25 +273,25 @@
       "id": "chicken_fingers_fries",
       "name": "FRIED CHICKEN FINGER & FRIES",
       "price": 13.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/dinners/chicken_fingers_fries.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/dinners/chicken_fingers_fries.jpg"
     },
     {
       "id": "buffalo_tenders_fries",
       "name": "BUFFALO TENDERS & FRIES",
       "price": 13.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/dinners/buffalo_tenders_fries.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/dinners/buffalo_tenders_fries.jpg"
     },
     {
       "id": "wings_fries",
       "name": "REG WINGS & FRIES",
       "price": 13.75,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/dinners/wings_fries.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/dinners/wings_fries.jpg"
     },
     {
       "id": "lamb_plate",
       "name": "LAMB PLATE W/GREEK SALAD & FRIES",
       "price": 23.00,
-      "image": "https://raw.githubusercontent.com/Mecozz/Menu/main/images/dinners/lamb_plate.jpg"
+      "image": "https://raw.githubusercontent.com/Mecozz/AppEdits/main/images/dinners/lamb_plate.jpg"
     }
   ]
 }
