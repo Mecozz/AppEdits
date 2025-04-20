@@ -1,22 +1,130 @@
 {
   "hotColdSubs": [
-    { "id": "meatballs_sub", "name": "MEATBALLS", "price": 13.00, "image": "" },
-    { "id": "sausage_sub", "name": "SAUSAGE", "price": 13.00, "image": "" },
-    { "id": "ham_cheese_sub", "name": "HAM & CHEESE", "price": 13.00, "image": "" },
-    { "id": "salami_sub", "name": "SALAMI", "price": 13.00, "image": "" },
-    { "id": "tuna_sub", "name": "TUNA", "price": 13.00, "image": "" },
-    { "id": "cheeseburger_sub", "name": "CHEESEBURGER", "price": 13.00, "image": "" },
-    { "id": "blt_sub", "name": "B.L.T", "price": 13.00, "image": "" },
-    { "id": "pastrami_sub", "name": "PASTRAMI", "price": 13.00, "image": "" },
-    { "id": "gyros_sub", "name": "GYROS", "price": 13.75, "image": "" },
-    { "id": "veal_parm_sub", "name": "VEAL PARMESAN", "price": 13.00, "image": "" },
-    { "id": "chicken_parm_sub", "name": "CHICKEN PARMESAN", "price": 13.00, "image": "" },
-    { "id": "vegetarian_sub", "name": "VEGETARIAN", "price": 13.00, "image": "" },
-    { "id": "roast_beef_sub", "name": "ROAST BEEF", "price": 13.00, "image": "" },
-    { "id": "turkey_sub", "name": "TURKEY", "price": 13.00, "image": "" },
-    { "id": "sausage_meatballs_sub", "name": "SAUSAGE & MEATBALLS", "price": 13.75, "image": "" },
-    { "id": "combo_italian_sub", "name": "COMBO ITALIAN", "price": 13.75, "image": "" },
-    { "id": "lamb_grinder_sub", "name": "LAMB GRINDER", "price": 13.75, "image": "" },
-    { "id": "extra_cheese_sub", "name": "EXTRA CHEESE", "price": 2.50, "image": "" }
+    {
+      "id": "meatballs_sub",
+      "name": "MEATBALLS",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "sausage_sub",
+      "name": "SAUSAGE",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "ham_cheese_sub",
+      "name": "HAM & CHEESE",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "salami_sub",
+      "name": "SALAMI",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "tuna_sub",
+      "name": "TUNA",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "cheeseburger_sub",
+      "name": "CHEESEBURGER",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "blt_sub",
+      "name": "B.L.T",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "pastrami_sub",
+      "name": "PASTRAMI",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "gyros_sub",
+      "name": "GYROS",
+      "reg_price": 11.75,
+      "lg_price": 13.75,
+      "image": ""
+    },
+    {
+      "id": "veal_parm_sub",
+      "name": "VEAL PARMESAN",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "chicken_parm_sub",
+      "name": "CHICKEN PARMESAN",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "vegetarian_sub",
+      "name": "VEGETARIAN",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "roast_beef_sub",
+      "name": "ROAST BEEF",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "turkey_sub",
+      "name": "TURKEY",
+      "reg_price": 11.00,
+      "lg_price": 13.00,
+      "image": ""
+    },
+    {
+      "id": "sausage_meatballs_sub",
+      "name": "SAUSAGE & MEATBALLS",
+      "reg_price": 11.75,
+      "lg_price": 13.75,
+      "image": ""
+    },
+    {
+      "id": "combo_italian_sub",
+      "name": "COMBO ITALIAN",
+      "reg_price": 11.75,
+      "lg_price": 13.75,
+      "image": ""
+    },
+    {
+      "id": "lamb_grinder_sub",
+      "name": "LAMB GRINDER",
+      "reg_price": null,
+      "lg_price": 13.75,
+      "image": ""
+    },
+    {
+      "id": "extra_cheese_sub",
+      "name": "EXTRA CHEESE",
+      "reg_price": 2.00,
+      "lg_price": 2.50,
+      "image": ""
+    }
   ]
 }
