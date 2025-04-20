@@ -1,167 +1,28 @@
 {
-  "config": {
-    "imageRotationSpeed": 10000
-  },
-  "header": {
-    "leftCategory": "PIZZA",
-    "rightCategory": "CALZONES"
-  },
   "pizza": [
-    {
-      "id": "plain_pizza",
-      "name": "PLAIN",
-      "lg_price": 13.00,
-      "reg_price": 9.00,
-      "image": ""
-    },
-    {
-      "id": "onions_pizza",
-      "name": "ONIONS",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "peppers_pizza",
-      "name": "PEPPERS",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "hamburg_pizza",
-      "name": "HAMBURG",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "pepperoni_pizza",
-      "name": "PEPPERONI",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "ham_pizza",
-      "name": "HAM",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "mushroom_pizza",
-      "name": "MUSHROOM",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "sausage_pizza",
-      "name": "SAUSAGE",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "meatballs_pizza",
-      "name": "MEATBALLS",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    },
-    {
-      "id": "bacon_pizza",
-      "name": "BACON",
-      "lg_price": 16.00,
-      "reg_price": 12.00,
-      "image": ""
-    }
+    { "id": "plain_pizza", "name": "PLAIN", "price": 13.00, "image": "" },
+    { "id": "onions_pizza", "name": "ONIONS", "price": 16.00, "image": "" },
+    { "id": "peppers_pizza", "name": "PEPPERS", "price": 16.00, "image": "" },
+    { "id": "hamburg_pizza", "name": "HAMBURG", "price": 16.00, "image": "" },
+    { "id": "pepperoni_pizza", "name": "PEPPERONI", "price": 16.00, "image": "" },
+    { "id": "ham_pizza", "name": "HAM", "price": 16.00, "image": "" },
+    { "id": "mushroom_pizza", "name": "MUSHROOM", "price": 16.00, "image": "" },
+    { "id": "sausage_pizza", "name": "SAUSAGE", "price": 16.00, "image": "" },
+    { "id": "meatballs_pizza", "name": "MEATBALLS", "price": 16.00, "image": "" },
+    { "id": "bacon_pizza", "name": "BACON", "price": 16.00, "image": "" }
   ],
   "calzones": [
-    {
-      "id": "plain_calzone",
-      "name": "PLAIN",
-      "lg_price": 16.75,
-      "reg_price": 13.00,
-      "image": ""
-    },
-    {
-      "id": "1item_calzone",
-      "name": "1 ITEM",
-      "lg_price": 18.75,
-      "reg_price": 16.00,
-      "image": ""
-    },
-    {
-      "id": "2items_calzone",
-      "name": "2 ITEMS",
-      "lg_price": 22.00,
-      "reg_price": 17.75,
-      "image": ""
-    },
-    {
-      "id": "steak_special_calzone",
-      "name": "STEAK SPECIAL",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "chicken_calzone",
-      "name": "CHICKEN",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "spinach_feta_calzone",
-      "name": "SPINACH & FETA",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "meatball_calzone",
-      "name": "MEATBALL",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "ham_pineapple_calzone",
-      "name": "HAM & PINEAPPLE",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "house_special_calzone",
-      "name": "HOUSE SPECIAL",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "bacon_gyro_calzone",
-      "name": "BACON OR GYRO",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "meat_lovers_calzone",
-      "name": "MEAT LOVERS",
-      "lg_price": 23.00,
-      "reg_price": 16.75,
-      "image": ""
-    },
-    {
-      "id": "extra_cheese_calzone",
-      "name": "EXTRA CHEESE",
-      "lg_price": 3.00,
-      "reg_price": 2.50,
-      "image": ""
-    }
+    { "id": "plain_calzone", "name": "PLAIN", "price": 16.75, "image": "" },
+    { "id": "1item_calzone", "name": "1 ITEM", "price": 18.75, "image": "" },
+    { "id": "2items_calzone", "name": "2 ITEMS", "price": 22.00, "image": "" },
+    { "id": "steak_special_calzone", "name": "STEAK SPECIAL", "price": 23.00, "image": "" },
+    { "id": "chicken_calzone", "name": "CHICKEN", "price": 23.00, "image": "" },
+    { "id": "spinach_feta_calzone", "name": "SPINACH & FETA", "price": 23.00, "image": "" },
+    { "id": "meatball_calzone", "name": "MEATBALL", "price": 23.00, "image": "" },
+    { "id": "ham_pineapple_calzone", "name": "HAM & PINEAPPLE", "price": 23.00, "image": "" },
+    { "id": "house_special_calzone", "name": "HOUSE SPECIAL", "price": 23.00, "image": "" },
+    { "id": "bacon_gyro_calzone", "name": "BACON OR GYRO", "price": 23.00, "image": "" },
+    { "id": "meat_lovers_calzone", "name": "MEAT LOVERS", "price": 23.00, "image": "" },
+    { "id": "extra_cheese_calzone", "name": "EXTRA CHEESE", "price": 3.00, "image": "" }
   ]
 }
