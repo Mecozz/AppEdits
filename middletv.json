@@ -1,130 +1,94 @@
 {
-  "hotColdSubs": [
+  "middle_items" : [
     {
-      "id": "meatballs_sub",
-      "name": "MEATBALLS",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "description" : "",
+      "price" : "$11.00",
+      "name" : "MEATBALLS"
     },
     {
-      "id": "sausage_sub",
-      "name": "SAUSAGE",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "name" : "SAUSAGE",
+      "price" : "$11.00",
+      "description" : ""
     },
     {
-      "id": "ham_cheese_sub",
-      "name": "HAM & CHEESE",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "name" : "HAM & CHEESE",
+      "price" : "$13.00",
+      "description" : ""
     },
     {
-      "id": "salami_sub",
-      "name": "SALAMI",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "description" : "",
+      "name" : "SALAMI",
+      "price" : "$13.00"
     },
     {
-      "id": "tuna_sub",
-      "name": "TUNA",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "description" : "",
+      "price" : "$11.00",
+      "name" : "TUNA"
     },
     {
-      "id": "cheeseburger_sub",
-      "name": "CHEESEBURGER",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "name" : "CHEESEBURGER",
+      "price" : "$11.00",
+      "description" : ""
     },
     {
-      "id": "blt_sub",
-      "name": "B.L.T",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "description" : "",
+      "price" : "$13.00",
+      "name" : "B.L.T"
     },
     {
-      "id": "pastrami_sub",
-      "name": "PASTRAMI",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "price" : "$11.00",
+      "description" : "",
+      "name" : "PASTRAMI"
     },
     {
-      "id": "gyros_sub",
-      "name": "GYROS",
-      "reg_price": 11.75,
-      "lg_price": 13.75,
-      "image": ""
+      "price" : "$13.75",
+      "name" : "GYROS",
+      "description" : ""
     },
     {
-      "id": "veal_parm_sub",
-      "name": "VEAL PARMESAN",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "name" : "VEAL PARMESAN",
+      "price" : "$13.00",
+      "description" : ""
     },
     {
-      "id": "chicken_parm_sub",
-      "name": "CHICKEN PARMESAN",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "price" : "$13.00",
+      "name" : "CHICKEN PARMESAN",
+      "description" : ""
     },
     {
-      "id": "vegetarian_sub",
-      "name": "VEGETARIAN",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "name" : "VEGETARIAN",
+      "price" : "$11.00",
+      "description" : ""
     },
     {
-      "id": "roast_beef_sub",
-      "name": "ROAST BEEF",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "name" : "ROAST BEEF",
+      "description" : "",
+      "price" : "$13.00"
     },
     {
-      "id": "turkey_sub",
-      "name": "TURKEY",
-      "reg_price": 11.00,
-      "lg_price": 13.00,
-      "image": ""
+      "price" : "$13.00",
+      "description" : "",
+      "name" : "TURKEY"
     },
     {
-      "id": "sausage_meatballs_sub",
-      "name": "SAUSAGE & MEATBALLS",
-      "reg_price": 11.75,
-      "lg_price": 13.75,
-      "image": ""
+      "description" : "",
+      "name" : "SAUSAGE & MEATBALLS",
+      "price" : "$13.75"
     },
     {
-      "id": "combo_italian_sub",
-      "name": "COMBO ITALIAN",
-      "reg_price": 11.75,
-      "lg_price": 13.75,
-      "image": ""
+      "price" : "$11.75",
+      "name" : "COMBO ITALIAN",
+      "description" : ""
     },
     {
-      "id": "lamb_grinder_sub",
-      "name": "LAMB GRINDER",
-      "reg_price": null,
-      "lg_price": 13.75,
-      "image": ""
+      "name" : "LAMB GRINDER",
+      "price" : "$13.75",
+      "description" : ""
     },
     {
-      "id": "extra_cheese_sub",
-      "name": "EXTRA CHEESE",
-      "reg_price": 2.00,
-      "lg_price": 2.50,
-      "image": ""
+      "price" : "$2.50",
+      "description" : "",
+      "name" : "EXTRA CHEESE"
     }
   ]
 }
