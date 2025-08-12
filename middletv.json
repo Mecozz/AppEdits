@@ -2,28 +2,28 @@
   "middle_items" : [
     {
       "price" : "$11.00",
-      "name" : "MEATBALLS",
-      "description" : ""
+      "description" : "",
+      "name" : "MEATBALLS"
     },
     {
       "price" : "$11.00",
-      "name" : "SAUSAGE",
-      "description" : ""
+      "description" : "",
+      "name" : "SAUSAGE"
     },
     {
       "description" : "",
-      "name" : "HAM & CHEESE",
-      "price" : "$13.00"
+      "price" : "$13.00",
+      "name" : "HAM & CHEESE"
     },
     {
-      "description" : "",
       "name" : "SALAMI",
-      "price" : "$13.00"
+      "price" : "$13.00",
+      "description" : ""
     },
     {
       "description" : "",
-      "price" : "$11.00",
-      "name" : "TUNA"
+      "name" : "TUNA",
+      "price" : "$11.00"
     },
     {
       "name" : "CHEESEBURGER",
@@ -36,24 +36,24 @@
       "description" : ""
     },
     {
-      "name" : "PASTRAMI",
       "price" : "$11.00",
-      "description" : ""
+      "description" : "",
+      "name" : "PASTRAMI"
     },
     {
       "price" : "$13.75",
-      "name" : "GYROS",
-      "description" : ""
-    },
-    {
-      "name" : "VEAL PARMESAN",
-      "price" : "$13.00",
-      "description" : ""
-    },
-    {
-      "price" : "$13.00",
       "description" : "",
-      "name" : "CHICKEN PARMESAN"
+      "name" : "GYROS"
+    },
+    {
+      "description" : "",
+      "name" : "VEAL PARMESAN",
+      "price" : "$13.00"
+    },
+    {
+      "name" : "CHICKEN PARMESAN",
+      "price" : "$13.00",
+      "description" : ""
     },
     {
       "name" : "VEGETARIAN",
@@ -61,34 +61,34 @@
       "price" : "$11.00"
     },
     {
-      "name" : "ROAST BEEF",
       "price" : "$13.00",
-      "description" : ""
-    },
-    {
-      "name" : "TURKEY",
-      "price" : "$13.00",
-      "description" : ""
-    },
-    {
-      "name" : "SAUSAGE & MEATBALLS",
-      "price" : "$13.75",
-      "description" : ""
-    },
-    {
       "description" : "",
+      "name" : "ROAST BEEF"
+    },
+    {
+      "price" : "$13.00",
+      "description" : "",
+      "name" : "TURKEY"
+    },
+    {
+      "price" : "$13.75",
+      "description" : "",
+      "name" : "SAUSAGE & MEATBALLS"
+    },
+    {
+      "name" : "COMBO ITALIAN",
       "price" : "$11.75",
-      "name" : "COMBO ITALIAN"
-    },
-    {
-      "price" : "$13.75",
-      "name" : "LAMB GRINDER",
       "description" : ""
     },
     {
-      "price" : "$2.50",
       "description" : "",
-      "name" : "EXTRA CHEESE"
+      "price" : "$13.75",
+      "name" : "LAMB GRINDER"
+    },
+    {
+      "name" : "EXTRA CHEESE",
+      "description" : "",
+      "price" : "$2.50"
     }
   ]
 }
