@@ -1,18 +1,18 @@
 {
   "middle_items" : [
     {
-      "description" : "",
+      "price" : "$11.00",
       "name" : "MEATBALLS",
-      "price" : "$11.00"
+      "description" : ""
     },
     {
+      "price" : "$11.00",
       "name" : "SAUSAGE",
-      "description" : "",
-      "price" : "$11.00"
+      "description" : ""
     },
     {
-      "name" : "HAM & CHEESE",
       "description" : "",
+      "name" : "HAM & CHEESE",
       "price" : "$13.00"
     },
     {
@@ -22,13 +22,13 @@
     },
     {
       "description" : "",
-      "name" : "TUNA",
-      "price" : "$11.00"
+      "price" : "$11.00",
+      "name" : "TUNA"
     },
     {
-      "description" : "",
       "name" : "CHEESEBURGER",
-      "price" : "$11.00"
+      "price" : "$11.00",
+      "description" : ""
     },
     {
       "price" : "$13.00",
@@ -36,13 +36,13 @@
       "description" : ""
     },
     {
-      "description" : "",
+      "name" : "PASTRAMI",
       "price" : "$11.00",
-      "name" : "PASTRAMI"
+      "description" : ""
     },
     {
-      "name" : "GYROS",
       "price" : "$13.75",
+      "name" : "GYROS",
       "description" : ""
     },
     {
@@ -51,19 +51,19 @@
       "description" : ""
     },
     {
+      "price" : "$13.00",
       "description" : "",
-      "name" : "CHICKEN PARMESAN",
-      "price" : "$13.00"
+      "name" : "CHICKEN PARMESAN"
     },
     {
+      "name" : "VEGETARIAN",
       "description" : "",
-      "price" : "$11.00",
-      "name" : "VEGETARIAN"
+      "price" : "$11.00"
     },
     {
       "name" : "ROAST BEEF",
-      "description" : "",
-      "price" : "$13.00"
+      "price" : "$13.00",
+      "description" : ""
     },
     {
       "name" : "TURKEY",
@@ -76,13 +76,13 @@
       "description" : ""
     },
     {
-      "name" : "COMBO ITALIAN",
       "description" : "",
-      "price" : "$11.75"
+      "price" : "$11.75",
+      "name" : "COMBO ITALIAN"
     },
     {
-      "name" : "LAMB GRINDER",
       "price" : "$13.75",
+      "name" : "LAMB GRINDER",
       "description" : ""
     },
     {
