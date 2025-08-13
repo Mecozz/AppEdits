@@ -1,24 +1,24 @@
 {
   "right_items" : [
     {
-      "name" : "PLAIN",
       "reg_price" : "$13.00",
+      "name" : "PLAIN",
       "lg_price" : "$16.75"
     },
     {
-      "reg_price" : "$16.00",
+      "name" : "1 ITEM",
       "lg_price" : "$18.75",
-      "name" : "1 ITEM"
+      "reg_price" : "$16.00"
     },
     {
       "reg_price" : "$17.75",
-      "name" : "2 ITEMS",
-      "lg_price" : "$22.00"
+      "lg_price" : "$22.00",
+      "name" : "2 ITEMS"
     },
     {
-      "reg_price" : "$16.75",
       "lg_price" : "$23.00",
-      "name" : "STEAK SPECIAL"
+      "name" : "STEAK SPECIAL",
+      "reg_price" : "$16.75"
     },
     {
       "name" : "CHICKEN",
@@ -26,55 +26,55 @@
       "lg_price" : "$23.00"
     },
     {
-      "name" : "SPINACH & FETA",
+      "lg_price" : "$23.00",
       "reg_price" : "$16.75",
-      "lg_price" : "$23.00"
+      "name" : "SPINACH & FETA"
     },
     {
-      "lg_price" : "$23.00",
       "name" : "MEATBALL",
+      "lg_price" : "$23.00",
       "reg_price" : "$16.75"
     },
     {
-      "name" : "HAM & PINEAPPLE",
+      "lg_price" : "$23.00",
+      "reg_price" : "$16.75",
+      "name" : "HAM & PINEAPPLE"
+    },
+    {
+      "reg_price" : "$16.75",
+      "name" : "HOUSE SPECIAL",
+      "lg_price" : "$23.00"
+    },
+    {
+      "name" : "BACON OR GYRO",
       "reg_price" : "$16.75",
       "lg_price" : "$23.00"
     },
     {
-      "name" : "HOUSE SPECIAL",
       "lg_price" : "$23.00",
-      "reg_price" : "$16.75"
-    },
-    {
-      "lg_price" : "$23.00",
-      "name" : "BACON OR GYRO",
-      "reg_price" : "$16.75"
-    },
-    {
       "name" : "MEAT LOVERS",
-      "lg_price" : "$23.00",
       "reg_price" : "$16.75"
     },
     {
+      "lg_price" : "$3.00",
       "reg_price" : "$2.50",
-      "name" : "EXTRA CHEESE",
-      "lg_price" : "$3.00"
+      "name" : "EXTRA CHEESE"
     }
   ],
   "left_items" : [
     {
       "reg_price" : "$9.00",
-      "lg_price" : "$13.00",
-      "name" : "PLAIN"
+      "name" : "PLAIN",
+      "lg_price" : "$13.00"
     },
     {
-      "name" : "ONIONS",
       "reg_price" : "$12.00",
+      "name" : "ONIONS",
       "lg_price" : "$16.00"
     },
     {
-      "reg_price" : "$12.00",
       "lg_price" : "$16.00",
+      "reg_price" : "$12.00",
       "name" : "PEPPERS"
     },
     {
@@ -84,8 +84,8 @@
     },
     {
       "reg_price" : "$12.00",
-      "name" : "PEPPERONI",
-      "lg_price" : "$16.00"
+      "lg_price" : "$16.00",
+      "name" : "PEPPERONI"
     },
     {
       "lg_price" : "$16.00",
@@ -93,14 +93,14 @@
       "reg_price" : "$12.00"
     },
     {
-      "reg_price" : "$12.00",
       "lg_price" : "$16.00",
-      "name" : "MUSHROOM"
+      "name" : "MUSHROOM",
+      "reg_price" : "$12.00"
     },
     {
       "name" : "SAUSAGE",
-      "lg_price" : "$16.00",
-      "reg_price" : "$12.00"
+      "reg_price" : "$12.00",
+      "lg_price" : "$16.00"
     },
     {
       "name" : "MEATBALLS",
