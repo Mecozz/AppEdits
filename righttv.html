@@ -3,111 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Menu</title>
+    <title>Digital Menu - Right Display</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         html, body {
             width: 100%;
             height: 100vh;
-            background-color: black;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             overflow: hidden;
+            position: relative;
         }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #333;
+            border-top: 5px solid #FFD700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #FFD700;
+            letter-spacing: 2px;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 8px 15px;
+            background: rgba(0, 0, 0, 0.9);
+            color: #666;
+            font-size: 0.75em;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom-left-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .status-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .status-indicator.offline {
+            background: #f44336;
+        }
+        
+        /* Subtle animation to prevent burn-in */
+        @keyframes subtle-shift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(1px); }
+        }
+        
         .menu-container {
             width: 100%;
             height: 100vh;
-            background-color: black;
-            padding: 0; /* No padding to keep at the top */
+            padding: 0;
+            animation: subtle-shift 60s infinite;
         }
+        
         .menu-table {
-            width: 100%; /* Full width */
+            width: 100%;
+            height: 100vh;
         }
+        
         table {
             width: 100%;
+            height: 100%;
             border-collapse: collapse;
-            font-size: 28px; /* Increased from 26px */
+            font-size: 28px;
         }
+        
+        /* Main headers */
         th {
-            background-color: yellow;
-            color: red;
+            background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            background-size: 200% 100%;
+            color: #8B0000;
             font-weight: bold;
-            padding: 10px; /* Padding scaled with font size */
+            padding: 10px;
             text-align: center;
-            font-size: 30px; /* Increased from 28px */
+            font-size: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: header-shine 4s linear infinite;
+            position: relative;
         }
-        /* Custom styling for DINNERS td to keep price column black */
-        .dinners-td {
-            background-color: black; /* Keep price column black */
+        
+        @keyframes header-shine {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
         }
+        
+        th:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            animation: slide 3s infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Content cells */
         td {
-            padding: 6px; /* Padding scaled with font size */
+            padding: 6px;
             text-align: left;
             vertical-align: top;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(5px);
         }
+        
+        /* Inner tables */
+        td table {
+            font-size: 26px;
+            background: transparent;
+        }
+        
+        td table td {
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        /* Item rows hover effect */
+        td table tr:hover td:first-child {
+            color: #FFD700;
+            transform: translateX(5px);
+        }
+        
+        /* Price styling */
         .price {
             text-align: right;
-            width: 70px; /* Width scaled with font size */
+            width: 70px;
+            font-weight: 600;
+            color: #4CAF50;
         }
-        /* Add spacing between Steak Subs prices and Salads names */
+        
+        /* Spacing between sections */
         .steak-subs .price {
-            padding-right: 40px; /* Increased space to the right */
+            padding-right: 40px;
         }
-        /* Add spacing between Salads prices and Side Orders names */
+        
         .salads .price {
-            padding-right: 40px; /* Increased space to the right */
+            padding-right: 40px;
         }
-        /* Add spacing between Italian Dishes prices and Dinners names */
+        
         .italian-dishes .price {
-            padding-right: 40px; /* Increased space to the right */
+            padding-right: 40px;
         }
+        
+        /* Subheaders */
         .subheader {
             font-weight: bold;
             text-align: center;
-            background-color: black;
-            color: white;
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+            font-size: 0.9em;
+            padding: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+        
         .header-row {
-            background-color: yellow;
-            color: black;
+            background: transparent;
         }
-        /* Style for the image cell */
+        
+        .header-row td {
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Special items */
+        .special-item td:first-child {
+            color: #FFD700;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .special-badge {
+            background: linear-gradient(90deg, #FF0000, #FF6B6B);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.6em;
+            margin-left: 8px;
+            display: inline-block;
+            animation: badge-pulse 2s infinite;
+        }
+        
+        @keyframes badge-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Image cell */
         .image-cell {
-            background-color: black;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
             text-align: center;
             vertical-align: middle;
+            position: relative;
+            overflow: hidden;
         }
+        
         .menu-image {
-            width: 30%;  /* Use percentage for responsiveness */
-            max-width: 250px;  /* Set a reasonable max width */
-            height: auto;  /* Keep aspect ratio */
-            object-fit: contain; /* Ensure the image fits without distortion */
-            transition: opacity 0.5s ease; /* Smooth transition for slideshow */
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+            max-height: 90%;
+            object-fit: contain;
+            transition: all 0.5s ease;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
         }
-        /* Error message styling */
+        
+        .menu-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Error message */
         .error-message {
-            color: red;
+            color: #FF6B6B;
             text-align: center;
-            font-size: 20px;
+            font-size: 1.5em;
             padding: 20px;
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-            z-index: 10; /* Ensure it appears above other content */
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(50, 0, 0, 0.95));
+            border: 2px solid #FF0000;
+            border-radius: 15px;
+            z-index: 1001;
+            max-width: 80%;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
         }
-        /* Adjustments for smaller screens */
+        
+        /* Update notification */
+        .update-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1em;
+            display: none;
+            animation: slideIn 0.5s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            z-index: 101;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .update-notification.show {
+            display: block;
+        }
+        
+        /* Fullscreen button */
+        .fullscreen-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .fullscreen-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive design */
         @media (max-width: 768px) {
             table {
-                font-size: 22px; /* Increased from 20px */
+                font-size: 22px;
             }
             th {
-                font-size: 24px; /* Increased from 22px */
+                font-size: 24px;
+                padding: 8px;
             }
             td, th {
                 padding: 5px;
@@ -119,40 +364,69 @@
                 padding-right: 25px;
             }
             .menu-image {
-                width: 25%; /* Slightly smaller width for medium screens */
+                width: 70%;
                 max-width: 200px;
-                max-height: 80%; /* Adjust image size for smaller screens */
+            }
+            td table {
+                font-size: 20px;
             }
         }
+        
         @media (max-width: 480px) {
             table {
-                font-size: 20px; /* Increased from 18px */
+                font-size: 18px;
             }
             th {
-                font-size: 22px; /* Increased from 20px */
+                font-size: 20px;
+                padding: 6px;
             }
             td, th {
                 padding: 4px;
             }
             .price {
                 width: 50px;
+                font-size: 0.9em;
             }
             .steak-subs .price, .salads .price, .italian-dishes .price {
-                padding-right: 20px;
+                padding-right: 15px;
             }
             .menu-image {
-                width: 20%; /* Even smaller width for small screens */
+                width: 60%;
                 max-width: 150px;
-                max-height: 60%; /* Adjust image size for smaller screens */
+            }
+            .fullscreen-btn {
+                display: none;
+            }
+            td table {
+                font-size: 16px;
+            }
+            .status-bar {
+                font-size: 0.65em;
+                padding: 5px 10px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">LOADING MENU...</div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div id="statusIndicator" class="status-indicator"></div>
+        <span id="statusText">Connected</span>
+        <span id="lastUpdate">--</span>
+        <span id="clock"></span>
+    </div>
+
+    <!-- Main Menu Container -->
     <div class="menu-container">
         <div class="menu-table">
             <table id="menuTable">
-                <!-- Fallback table structure -->
+                <!-- Top Row: Steak Subs | Salads | Side Orders -->
                 <tr class="header-row">
                     <th id="steakSubsHeader">STEAK SUBS</th>
                     <th id="saladsHeader">SALADS</th>
@@ -166,13 +440,11 @@
                                 <td class="subheader">LG 12"</td>
                                 <td class="subheader">REG 8"</td>
                             </tr>
-                            <!-- Fallback data -->
                             <tr><td>Loading...</td><td class="price">-</td><td class="price">-</td></tr>
                         </table>
                     </td>
                     <td class="salads" id="saladsContent">
                         <table>
-                            <!-- Fallback data -->
                             <tr><td>Loading...</td><td class="price">-</td><td></td></tr>
                         </table>
                     </td>
@@ -183,162 +455,381 @@
                                 <td class="subheader">LG</td>
                                 <td class="subheader">SM</td>
                             </tr>
-                            <!-- Fallback data -->
                             <tr><td>Loading...</td><td class="price">-</td><td class="price">-</td></tr>
                         </table>
                     </td>
                 </tr>
+                <!-- Bottom Row: Italian Dishes | Dinners | Image -->
                 <tr class="header-row">
                     <th id="italianDishesHeader">ITALIAN DISHES</th>
                     <th id="dinnersHeader">DINNERS</th>
-                    <th></th>
+                    <th>FEATURED</th>
                 </tr>
                 <tr>
                     <td class="italian-dishes" id="italianDishesContent">
                         <table>
-                            <!-- Fallback data -->
                             <tr><td>Loading...</td><td class="price">-</td><td></td></tr>
                         </table>
                     </td>
                     <td id="dinnersContent">
                         <table>
-                            <!-- Fallback data -->
-                            <tr><td class="dinners-td">Loading...</td><td class="price">-</td></tr>
+                            <tr><td>Loading...</td><td class="price">-</td></tr>
                         </table>
                     </td>
                     <td class="image-cell" id="imageContent">
-                        <img src="your-image.jpg" alt="Menu Image" class="menu-image" id="menuImage">
+                        <img src="" alt="Menu Image" class="menu-image" id="menuImage">
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+
+    <!-- Error Message -->
     <div id="errorMessage" class="error-message" style="display: none;"></div>
 
-    <script>
-        // Function to handle fetch with timeout
-        function fetchWithTimeout(url, timeout = 5000) {
-            return Promise.race([
-                fetch(url),
-                new Promise((_, reject) => setTimeout(() => reject(new Error('Request timed out')), timeout))
-            ]);
-        }
+    <!-- Update Notification -->
+    <div id="updateNotification" class="update-notification">
+        Menu Updated Successfully!
+    </div>
 
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+        ⛶ Fullscreen
+    </button>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            menuUrl: 'https://raw.githubusercontent.com/Mecozz/AppEdits/main/righttv.json',
+            refreshInterval: 5 * 60 * 1000, // 5 minutes
+            imageRotationSpeed: 5000, // 5 seconds
+            preventSleepInterval: 30 * 60 * 1000, // 30 minutes
+            maxRetries: 3,
+            retryDelay: 2000
+        };
+
+        // Placeholder image
+        const PLACEHOLDER_IMAGE = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzMzMyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iT3BlbiBTYW5zIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSIgZm9udC1zaXplPSIyMCI+TWVudSBJbWFnZTwvdGV4dD48L3N2Zz4=';
+
+        let isOnline = true;
+        let menuData = null;
         let currentImageIndex = 0;
-        let images = [];
         let validImages = [];
         let slideshowInterval;
 
-        // Function to check if an image URL is valid by attempting to load it
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeClock();
+            loadMenu();
+            setupAutoRefresh();
+            setupPreventSleep();
+            setupNetworkMonitoring();
+        });
+
+        // Clock display
+        function initializeClock() {
+            const updateClock = () => {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                document.getElementById('clock').textContent = timeString;
+            };
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        // Network monitoring
+        function setupNetworkMonitoring() {
+            window.addEventListener('online', () => updateConnectionStatus(true));
+            window.addEventListener('offline', () => updateConnectionStatus(false));
+            
+            // Check connection periodically
+            setInterval(async () => {
+                try {
+                    const response = await fetch(CONFIG.menuUrl + '?ping=' + Date.now(), {
+                        method: 'HEAD',
+                        cache: 'no-cache'
+                    });
+                    updateConnectionStatus(response.ok);
+                } catch {
+                    updateConnectionStatus(false);
+                }
+            }, 30000);
+        }
+
+        function updateConnectionStatus(online) {
+            isOnline = online;
+            const indicator = document.getElementById('statusIndicator');
+            const statusText = document.getElementById('statusText');
+            
+            if (online) {
+                indicator.classList.remove('offline');
+                statusText.textContent = 'Connected';
+            } else {
+                indicator.classList.add('offline');
+                statusText.textContent = 'Offline';
+            }
+        }
+
+        // Format price helper
+        function formatPrice(price) {
+            if (!price || price === '-' || price === '') return '-';
+            const cleanPrice = String(price).replace(/[$,]/g, '');
+            const numPrice = parseFloat(cleanPrice);
+            if (isNaN(numPrice)) return '-';
+            return `$${numPrice.toFixed(2)}`;
+        }
+
+        // Fetch with retry
+        async function fetchWithRetry(url, retries = CONFIG.maxRetries) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const controller = new AbortController();
+                    const timeout = setTimeout(() => controller.abort(), 5000);
+                    
+                    const response = await fetch(url + '?t=' + Date.now(), {
+                        signal: controller.signal,
+                        cache: 'no-cache'
+                    });
+                    
+                    clearTimeout(timeout);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    
+                    return response;
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, CONFIG.retryDelay));
+                }
+            }
+        }
+
+        // Check if image is valid
         async function checkImage(url) {
             return new Promise((resolve) => {
                 const img = new Image();
-                img.onload = () => resolve(url); // Return the URL if it loads
-                img.onerror = () => resolve(null); // Return null if it fails
+                const timeout = setTimeout(() => {
+                    img.src = '';
+                    resolve(null);
+                }, 3000);
+                
+                img.onload = () => {
+                    clearTimeout(timeout);
+                    resolve(url);
+                };
+                img.onerror = () => {
+                    clearTimeout(timeout);
+                    resolve(null);
+                };
                 img.src = url;
             });
         }
 
-        // Fetch and render the menu data from MenuRight.json
-        fetchWithTimeout('https://raw.githubusercontent.com/Mecozz/AppEdits/main/righttv.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+        // Load menu
+        async function loadMenu() {
+            try {
+                console.log('Loading menu...');
+                const response = await fetchWithRetry(CONFIG.menuUrl);
+                const data = await response.json();
+                
+                console.log('Menu loaded successfully:', data);
+                menuData = data;
+                
+                // Hide loading screen
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').classList.add('hide');
+                }, 500);
+                
+                // Update last update time
+                const now = new Date();
+                document.getElementById('lastUpdate').textContent = 
+                    `Updated: ${now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
+                
+                // Render menu
+                await renderMenu(data);
+                
+                // Show update notification
+                showUpdateNotification();
+                
+            } catch (error) {
+                console.error('Error loading menu:', error);
+                showError(`Failed to load menu: ${error.message}`);
+                
+                // Hide loading screen even on error
+                document.getElementById('loadingScreen').classList.add('hide');
+                
+                // Try to use cached data if available
+                if (menuData) {
+                    renderMenu(menuData);
                 }
-                return response.json();
-            })
-            .then(async data => {
-                console.log('JSON loaded successfully:', data);
+            }
+        }
 
-                // Update headers
-                document.getElementById('steakSubsHeader').innerText = data.header.left_category || "STEAK SUBS";
-                document.getElementById('saladsHeader').innerText = data.header.middle_category || "SALADS";
-                document.getElementById('sideOrdersHeader').innerText = data.header.right_category || "SIDE ORDERS";
-                document.getElementById('italianDishesHeader').innerText = data.header.bottom_left_category || "ITALIAN DISHES";
-                document.getElementById('dinnersHeader').innerText = data.header.bottom_middle_category || "DINNERS";
+        // Render menu
+        async function renderMenu(data) {
+            // Update headers
+            document.getElementById('steakSubsHeader').innerText = 
+                data.header?.left_category || "STEAK SUBS";
+            document.getElementById('saladsHeader').innerText = 
+                data.header?.middle_category || "SALADS";
+            document.getElementById('sideOrdersHeader').innerText = 
+                data.header?.right_category || "SIDE ORDERS";
+            document.getElementById('italianDishesHeader').innerText = 
+                data.header?.bottom_left_category || "ITALIAN DISHES";
+            document.getElementById('dinnersHeader').innerText = 
+                data.header?.bottom_middle_category || "DINNERS";
 
-                // Update Steak Subs
-                let steakSubsHTML = `
-                    <table>
-                        <tr class="header-row">
-                            <td class="subheader"></td>
-                            <td class="subheader">LG 12"</td>
-                            <td class="subheader">REG 8"</td>
-                        </tr>
-                        ${data.left_items && data.left_items.length > 0 ? data.left_items.map(item => `
-                            <tr>
-                                <td>${item.name.replace(' STEAK', '')}</td>
-                                <td class="price">${item.lg_price || '-'}</td>
-                                <td class="price">${item.reg_price || '-'}</td>
-                            </tr>
-                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'}
-                    </table>
-                `;
-                document.getElementById('steakSubsContent').innerHTML = steakSubsHTML;
+            // Update Steak Subs
+            let steakSubsHTML = `
+                <table>
+                    <tr class="header-row">
+                        <td class="subheader"></td>
+                        <td class="subheader">LG 12"</td>
+                        <td class="subheader">REG 8"</td>
+                    </tr>
+                    ${data.left_items && data.left_items.length > 0 ? 
+                        data.left_items.map(item => {
+                            const isSpecial = item.special || false;
+                            const itemClass = isSpecial ? 'special-item' : '';
+                            const name = item.name.replace(' STEAK', '');
+                            
+                            return `<tr class="${itemClass}">
+                                <td>
+                                    ${name}
+                                    ${isSpecial ? '<span class="special-badge">SPECIAL</span>' : ''}
+                                </td>
+                                <td class="price">${formatPrice(item.lg_price)}</td>
+                                <td class="price">${formatPrice(item.reg_price)}</td>
+                            </tr>`;
+                        }).join('') : 
+                        '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'
+                    }
+                </table>
+            `;
+            document.getElementById('steakSubsContent').innerHTML = steakSubsHTML;
 
-                // Update Salads
-                let saladsHTML = `
-                    <table>
-                        ${data.middle_items && data.middle_items.length > 0 ? data.middle_items.map(item => `
-                            <tr>
-                                <td>${item.name}</td>
-                                <td class="price">${item.price || '-'}</td>
+            // Update Salads
+            let saladsHTML = `
+                <table>
+                    ${data.middle_items && data.middle_items.length > 0 ? 
+                        data.middle_items.map(item => {
+                            const isSpecial = item.special || false;
+                            const itemClass = isSpecial ? 'special-item' : '';
+                            
+                            return `<tr class="${itemClass}">
+                                <td>
+                                    ${item.name}
+                                    ${isSpecial ? '<span class="special-badge">SPECIAL</span>' : ''}
+                                </td>
+                                <td class="price">${formatPrice(item.price)}</td>
                                 <td></td>
-                            </tr>
-                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td></td></tr>'}
-                    </table>
-                `;
-                document.getElementById('saladsContent').innerHTML = saladsHTML;
+                            </tr>`;
+                        }).join('') : 
+                        '<tr><td>No items available</td><td class="price">-</td><td></td></tr>'
+                    }
+                </table>
+            `;
+            document.getElementById('saladsContent').innerHTML = saladsHTML;
 
-                // Update Side Orders
-                let sideOrdersHTML = `
-                    <table>
-                        <tr class="header-row">
-                            <td class="subheader"></td>
-                            <td class="subheader">LG</td>
-                            <td class="subheader">SM</td>
-                        </tr>
-                        ${data.right_items && data.right_items.length > 0 ? data.right_items.map(item => `
-                            <tr>
-                                <td>${item.name}</td>
-                                <td class="price">${item.lg_price || ''}</td>
-                                <td class="price">${item.sm_price || ''}</td>
-                            </tr>
-                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'}
-                    </table>
-                `;
-                document.getElementById('sideOrdersContent').innerHTML = sideOrdersHTML;
+            // Update Side Orders
+            let sideOrdersHTML = `
+                <table>
+                    <tr class="header-row">
+                        <td class="subheader"></td>
+                        <td class="subheader">LG</td>
+                        <td class="subheader">SM</td>
+                    </tr>
+                    ${data.right_items && data.right_items.length > 0 ? 
+                        data.right_items.map(item => {
+                            const isSpecial = item.special || false;
+                            const itemClass = isSpecial ? 'special-item' : '';
+                            
+                            return `<tr class="${itemClass}">
+                                <td>
+                                    ${item.name}
+                                    ${isSpecial ? '<span class="special-badge">SPECIAL</span>' : ''}
+                                </td>
+                                <td class="price">${formatPrice(item.lg_price)}</td>
+                                <td class="price">${formatPrice(item.sm_price)}</td>
+                            </tr>`;
+                        }).join('') : 
+                        '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'
+                    }
+                </table>
+            `;
+            document.getElementById('sideOrdersContent').innerHTML = sideOrdersHTML;
 
-                // Update Italian Dishes
-                let italianDishesHTML = `
-                    <table>
-                        ${data.bottom_left_items && data.bottom_left_items.length > 0 ? data.bottom_left_items.map(item => `
-                            <tr>
-                                <td>${item.name}</td>
-                                <td class="price">${item.price || '-'}</td>
+            // Update Italian Dishes
+            let italianDishesHTML = `
+                <table>
+                    ${data.bottom_left_items && data.bottom_left_items.length > 0 ? 
+                        data.bottom_left_items.map(item => {
+                            const isSpecial = item.special || false;
+                            const itemClass = isSpecial ? 'special-item' : '';
+                            
+                            return `<tr class="${itemClass}">
+                                <td>
+                                    ${item.name}
+                                    ${isSpecial ? '<span class="special-badge">SPECIAL</span>' : ''}
+                                </td>
+                                <td class="price">${formatPrice(item.price)}</td>
                                 <td></td>
-                            </tr>
-                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td></td></tr>'}
-                    </table>
-                `;
-                document.getElementById('italianDishesContent').innerHTML = italianDishesHTML;
+                            </tr>`;
+                        }).join('') : 
+                        '<tr><td>No items available</td><td class="price">-</td><td></td></tr>'
+                    }
+                </table>
+            `;
+            document.getElementById('italianDishesContent').innerHTML = italianDishesHTML;
 
-                // Update Dinners
-                let dinnersHTML = `
-                    <table>
-                        ${data.bottom_middle_items && data.bottom_middle_items.length > 0 ? data.bottom_middle_items.map(item => `
-                            <tr>
-                                <td class="dinners-td">${item.name}</td>
-                                <td class="price">${item.price || '-'}</td>
-                            </tr>
-                        `).join('') : '<tr><td class="dinners-td">No items available</td><td class="price">-</td></tr>'}
-                    </table>
-                `;
-                document.getElementById('dinnersContent').innerHTML = dinnersHTML;
+            // Update Dinners
+            let dinnersHTML = `
+                <table>
+                    ${data.bottom_middle_items && data.bottom_middle_items.length > 0 ? 
+                        data.bottom_middle_items.map(item => {
+                            const isSpecial = item.special || false;
+                            const itemClass = isSpecial ? 'special-item' : '';
+                            
+                            return `<tr class="${itemClass}">
+                                <td>
+                                    ${item.name}
+                                    ${isSpecial ? '<span class="special-badge">SPECIAL</span>' : ''}
+                                </td>
+                                <td class="price">${formatPrice(item.price)}</td>
+                            </tr>`;
+                        }).join('') : 
+                        '<tr><td>No items available</td><td class="price">-</td></tr>'
+                    }
+                </table>
+            `;
+            document.getElementById('dinnersContent').innerHTML = dinnersHTML;
 
-                // Filter valid images by checking if they load
-                images = data.images || [];
-                for (let url of images) {
+            // Setup images
+            await setupImages(data);
+        }
+
+        // Setup images
+        async function setupImages(data) {
+            // Clear existing slideshow
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+            }
+            
+            // Reset valid images
+            validImages = [];
+            currentImageIndex = 0;
+            
+            // Get rotation speed from config or use default
+            const rotationSpeed = data.config?.image_rotation_speed || CONFIG.imageRotationSpeed;
+            
+            // Validate images
+            const images = data.images || [];
+            for (let url of images) {
+                if (url) {
                     const isValid = await checkImage(url);
                     if (isValid) {
                         validImages.push(isValid);
@@ -346,44 +837,105 @@
                         console.log(`Skipping invalid image: ${url}`);
                     }
                 }
-
-                // Initialize slideshow with valid images
-                if (validImages.length > 0) {
-                    startSlideshow();
-                } else {
-                    document.getElementById('imageContent').innerHTML = '<p>No valid images available</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error loading MenuRight.json:', error);
-                const errorMessage = document.getElementById('errorMessage');
-                errorMessage.style.display = 'block';
-                errorMessage.innerText = `Failed to load menu data: ${error.message}. Check the console for details or ensure MenuRight.json is accessible at https://raw.githubusercontent.com/Mecozz/Menu/main/MenuRight.json.`;
-            });
-
-        // Function to start the slideshow
-        function startSlideshow() {
-            if (slideshowInterval) clearInterval(slideshowInterval); // Clear existing interval
-            slideshowInterval = setInterval(() => {
-                const imageElement = document.getElementById('menuImage');
-                if (imageElement) {
-                    imageElement.style.opacity = '0'; // Fade out
-                    setTimeout(() => {
-                        // Move to the next valid image
-                        currentImageIndex = (currentImageIndex + 1) % validImages.length;
-                        imageElement.src = validImages[currentImageIndex];
-                        imageElement.style.opacity = '1'; // Fade in
-                    }, 500); // Match transition duration
-                }
-            }, 5000); // Change image every 5 seconds (adjustable)
+            }
+            
+            // Use placeholder if no valid images
+            if (validImages.length === 0) {
+                validImages = [PLACEHOLDER_IMAGE];
+            }
+            
             // Set initial image
-            document.getElementById('menuImage').src = validImages[currentImageIndex] || 'your-image.jpg';
+            const imageElement = document.getElementById('menuImage');
+            if (imageElement && validImages.length > 0) {
+                imageElement.src = validImages[0];
+                
+                // Start slideshow if multiple images
+                if (validImages.length > 1) {
+                    slideshowInterval = setInterval(() => {
+                        imageElement.style.opacity = '0';
+                        setTimeout(() => {
+                            currentImageIndex = (currentImageIndex + 1) % validImages.length;
+                            imageElement.src = validImages[currentImageIndex];
+                            imageElement.style.opacity = '1';
+                        }, 500);
+                    }, rotationSpeed);
+                }
+            }
         }
 
-        // Cleanup on page unload
-        window.onbeforeunload = () => {
-            if (slideshowInterval) clearInterval(slideshowInterval);
-        };
+        // Show update notification
+        function showUpdateNotification() {
+            const notification = document.getElementById('updateNotification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Show error message
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 10000);
+        }
+
+        // Setup auto refresh
+        function setupAutoRefresh() {
+            setInterval(() => {
+                if (isOnline) {
+                    console.log('Auto-refreshing menu...');
+                    loadMenu();
+                }
+            }, CONFIG.refreshInterval);
+        }
+
+        // Prevent TV sleep
+        function setupPreventSleep() {
+            setInterval(() => {
+                if (document.hidden) return;
+                
+                // Create tiny visual change
+                const body = document.body;
+                const currentOpacity = body.style.opacity || '1';
+                body.style.opacity = currentOpacity === '1' ? '0.9999' : '1';
+            }, CONFIG.preventSleepInterval);
+        }
+
+        // Toggle fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F11' || e.key === 'f') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+            if (e.key === 'r' && !e.ctrlKey) {
+                e.preventDefault();
+                loadMenu();
+            }
+        });
+
+        // Cleanup on unload
+        window.addEventListener('beforeunload', () => {
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+            }
+        });
     </script>
 </body>
 </html>
