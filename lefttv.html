@@ -3,175 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Digital Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Digital Menu Display</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
-            background: black;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: white;
             font-family: 'Open Sans', sans-serif;
             text-align: center;
-            overflow: auto; /* Allow vertical scrolling if content exceeds viewport */
-            min-height: 100vh; /* Ensure body can grow beyond viewport if needed */
+            overflow: auto;
+            min-height: 100vh;
+            position: relative;
         }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #333;
+            border-top: 5px solid #FFD700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #FFD700;
+        }
+        
+        /* Subtle animation to prevent burn-in */
+        @keyframes subtle-shift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(2px); }
+        }
+        
         .menu-container {
             width: 90%;
             margin: auto;
             padding-top: 20px;
-            padding-bottom: 20px; /* Add cushion at the bottom */
+            padding-bottom: 20px;
+            animation: subtle-shift 60s infinite;
         }
+        
+        /* Status Bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #666;
+            font-size: 0.8em;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .status-indicator.offline {
+            background: #f44336;
+        }
+        
+        /* Menu Header */
         .menu-header {
-            font-size: 2.8em; /* Increased from 2.7em */
+            font-size: 2.8em;
             font-weight: bold;
-            color: red;
-            background: yellow;
-            padding: 10px;
+            color: #FF0000;
+            background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+            padding: 15px;
             width: 100%;
             display: flex;
             justify-content: space-between;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3);
+            animation: header-glow 3s ease-in-out infinite;
         }
+        
+        @keyframes header-glow {
+            0%, 100% { box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5); }
+        }
+        
         .menu-header div {
             flex: 1;
             text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+        
+        /* Menu Table */
         .menu-table {
             width: 100%;
             display: flex;
             justify-content: space-between;
+            margin-top: 10px;
         }
+        
         .menu-column {
-            width: 45%;
+            width: 48%;
             text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px;
         }
+        
         table {
             width: 100%;
             border-collapse: collapse;
         }
+        
         th, td {
-            font-size: 2em; /* Increased from 1.9em */
+            font-size: 2em;
             padding: 8px;
             text-align: center;
         }
+        
         th {
-            color: white;
+            color: #FFD700;
+            font-weight: 600;
         }
+        
         .size-header th {
-            background-color: black;
+            background-color: rgba(0, 0, 0, 0.5);
             font-weight: bold;
-            text-align: center; /* Ensure centering */
-            white-space: nowrap; /* Prevent text wrapping */
+            text-align: center;
+            white-space: nowrap;
+            border-bottom: 2px solid #FFD700;
         }
+        
+        tr.item-row {
+            transition: all 0.3s ease;
+        }
+        
+        tr.item-row:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateX(5px);
+        }
+        
         td:first-child {
             text-align: left;
-            padding-right: 30px; /* Buffer between item name and price */
+            padding-right: 30px;
+            font-weight: 500;
         }
-        #left-menu .price {
-            padding-right: 30px; /* Reduced gap */
-        }
-        #right-menu .price {
-            padding-right: 10px; /* Ensure alignment consistency */
-        }
+        
         .price {
             text-align: right;
             width: 80px;
+            font-weight: 600;
+            color: #4CAF50;
         }
+        
+        /* Special Items */
+        .special-item td:first-child {
+            color: #FFD700;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .special-badge {
+            background: linear-gradient(90deg, #FF0000, #FF6B6B);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.5em;
+            margin-left: 10px;
+            display: inline-block;
+            animation: badge-pulse 2s infinite;
+        }
+        
+        @keyframes badge-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .sold-out {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+        
+        .sold-out .price {
+            color: #666;
+        }
+        
+        /* Image Row */
         .image-row {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
-            justify-content: space-between; /* Spread images evenly across the width */
+            justify-content: space-between;
             align-items: center;
             flex-wrap: nowrap;
+            gap: 10px;
         }
+        
         .image-container {
-            width: 18%; /* Adjusted for 5 images */
+            width: 18%;
             flex: 1;
             text-align: center;
-            height: 170px; /* Reduced to match smaller images */
+            height: 170px;
             display: flex;
-            align-items: center; /* Center image vertically */
-            justify-content: center; /* Center image horizontally */
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
         }
+        
         .menu-image {
             width: 100%;
-            max-width: 170px; /* Reduced from 180px to make images smaller */
-            max-height: 170px; /* Reduced from 180px to make images smaller */
+            max-width: 170px;
+            max-height: 170px;
             height: auto;
-            object-fit: contain;
-            transition: opacity 0.5s ease; /* Smooth transition for slideshow */
+            object-fit: cover;
+            transition: all 0.5s ease;
+            border-radius: 8px;
         }
-        .error-message {
-            color: red;
-            text-align: center;
-            font-size: 1.5em;
-            padding: 20px;
+        
+        .image-loading {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 10;
+            color: #666;
+            font-size: 0.9em;
         }
+        
+        /* Error Message */
+        .error-message {
+            color: #FF6B6B;
+            text-align: center;
+            font-size: 1.5em;
+            padding: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(50, 0, 0, 0.95));
+            border: 2px solid #FF0000;
+            border-radius: 15px;
+            z-index: 1001;
+            max-width: 80%;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+        
+        /* Update Notification */
+        .update-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1em;
+            display: none;
+            animation: slideIn 0.5s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .update-notification.show {
+            display: block;
+        }
+        
+        /* Fullscreen Button */
+        .fullscreen-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .fullscreen-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             table {
-                font-size: 1.7em; /* Increased from 1.6em */
+                font-size: 1.7em;
             }
             .menu-header {
-                font-size: 2.3em; /* Increased from 2.2em */
+                font-size: 2.3em;
             }
             td:first-child {
                 padding-right: 20px;
             }
-            #left-menu .price {
+            .price {
                 padding-right: 20px;
             }
-            #right-menu .price {
-                padding-right: 5px;
-            }
             .image-container {
-                height: 136px; /* Adjusted for smaller screens */
+                height: 136px;
             }
             .menu-image {
-                max-width: 136px; /* Adjusted from 144px */
-                max-height: 136px; /* Adjusted from 144px */
+                max-width: 136px;
+                max-height: 136px;
+            }
+            .menu-column {
+                width: 49%;
             }
         }
+        
         @media (max-width: 480px) {
             table {
-                font-size: 1.5em; /* Increased from 1.4em */
+                font-size: 1.5em;
             }
             .menu-header {
-                font-size: 1.8em; /* Increased from 1.7em */
+                font-size: 1.8em;
             }
             td:first-child {
                 padding-right: 15px;
             }
-            #left-menu .price {
+            .price {
                 padding-right: 15px;
             }
-            #right-menu .price {
-                padding-right: 5px;
-            }
             .image-container {
-                height: 102px; /* Adjusted for very small screens */
+                height: 102px;
             }
             .menu-image {
-                max-width: 102px; /* Adjusted from 108px */
-                max-height: 102px; /* Adjusted from 108px */
+                max-width: 102px;
+                max-height: 102px;
+            }
+            .fullscreen-btn {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading Menu...</div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div id="statusIndicator" class="status-indicator"></div>
+        <span id="statusText">Connected</span>
+        <span id="lastUpdate">Last update: --</span>
+        <span id="clock"></span>
+    </div>
+
+    <!-- Main Menu Container -->
     <div class="menu-container">
         <div class="menu-header">
-            <div id="left-category"></div>
-            <div id="right-category"></div>
+            <div id="left-category">PIZZA</div>
+            <div id="right-category">CALZONES</div>
         </div>
         <div class="menu-table">
             <div class="menu-column" id="left-menu"></div>
@@ -181,157 +423,421 @@
             <!-- Image containers will be populated here -->
         </div>
     </div>
+
+    <!-- Error Message -->
     <div id="errorMessage" class="error-message" style="display: none;"></div>
 
+    <!-- Update Notification -->
+    <div id="updateNotification" class="update-notification">
+        Menu Updated Successfully!
+    </div>
+
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+        ⛶ Fullscreen
+    </button>
+
     <script>
-        function fetchWithTimeout(url, timeout = 5000) {
-            return Promise.race([
-                fetch(url),
-                new Promise((_, reject) => setTimeout(() => reject(new Error('Request timed out')), timeout))
-            ]);
+        // Configuration
+        const CONFIG = {
+            menuUrl: 'https://raw.githubusercontent.com/Mecozz/AppEdits/main/lefttv.json',
+            refreshInterval: 5 * 60 * 1000, // 5 minutes
+            imageRotationDefault: 5000, // 5 seconds
+            preventSleepInterval: 30 * 60 * 1000, // 30 minutes
+            maxRetries: 3,
+            retryDelay: 2000
+        };
+
+        // Placeholder image for missing images
+        const PLACEHOLDER_IMAGE = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzMzMyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iT3BlbiBTYW5zIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSIgZm9udC1zaXplPSIyMCI+TWVudSBJbWFnZTwvdGV4dD48L3N2Zz4=';
+
+        let isOnline = true;
+        let menuData = null;
+        let imageIntervals = [];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeClock();
+            loadMenu();
+            setupAutoRefresh();
+            setupPreventSleep();
+            setupNetworkMonitoring();
+        });
+
+        // Clock display
+        function initializeClock() {
+            const updateClock = () => {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                document.getElementById('clock').textContent = timeString;
+            };
+            updateClock();
+            setInterval(updateClock, 1000);
         }
 
+        // Network monitoring
+        function setupNetworkMonitoring() {
+            window.addEventListener('online', () => updateConnectionStatus(true));
+            window.addEventListener('offline', () => updateConnectionStatus(false));
+            
+            // Check connection periodically
+            setInterval(async () => {
+                try {
+                    const response = await fetch(CONFIG.menuUrl + '?ping=' + Date.now(), {
+                        method: 'HEAD',
+                        cache: 'no-cache'
+                    });
+                    updateConnectionStatus(response.ok);
+                } catch {
+                    updateConnectionStatus(false);
+                }
+            }, 30000); // Check every 30 seconds
+        }
+
+        function updateConnectionStatus(online) {
+            isOnline = online;
+            const indicator = document.getElementById('statusIndicator');
+            const statusText = document.getElementById('statusText');
+            
+            if (online) {
+                indicator.classList.remove('offline');
+                statusText.textContent = 'Connected';
+            } else {
+                indicator.classList.add('offline');
+                statusText.textContent = 'Offline';
+            }
+        }
+
+        // Fetch with timeout and retry
+        async function fetchWithRetry(url, retries = CONFIG.maxRetries) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const controller = new AbortController();
+                    const timeout = setTimeout(() => controller.abort(), 5000);
+                    
+                    const response = await fetch(url + '?t=' + Date.now(), {
+                        signal: controller.signal,
+                        cache: 'no-cache'
+                    });
+                    
+                    clearTimeout(timeout);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    
+                    return response;
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, CONFIG.retryDelay));
+                }
+            }
+        }
+
+        // Format price helper
+        function formatPrice(price) {
+            if (!price || price === '-' || price === '') return '-';
+            const cleanPrice = String(price).replace(/[$,]/g, '');
+            const numPrice = parseFloat(cleanPrice);
+            if (isNaN(numPrice)) return '-';
+            return `$${numPrice.toFixed(2)}`;
+        }
+
+        // Check if image is valid
         async function checkImage(url) {
             return new Promise((resolve) => {
                 const img = new Image();
-                img.onload = () => resolve(url);
-                img.onerror = () => resolve(null);
+                const timeout = setTimeout(() => {
+                    img.src = '';
+                    resolve(null);
+                }, 3000);
+                
+                img.onload = () => {
+                    clearTimeout(timeout);
+                    resolve(url);
+                };
+                img.onerror = () => {
+                    clearTimeout(timeout);
+                    resolve(null);
+                };
                 img.src = url;
             });
         }
 
-        fetchWithTimeout('https://raw.githubusercontent.com/Mecozz/AppEdits/main/lefttv.json?t=' + new Date().getTime())
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+        // Load menu data
+        async function loadMenu() {
+            try {
+                console.log('Loading menu...');
+                const response = await fetchWithRetry(CONFIG.menuUrl);
+                const data = await response.json();
+                
+                console.log('Menu loaded successfully:', data);
+                menuData = data;
+                
+                // Hide loading screen
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').classList.add('hide');
+                }, 500);
+                
+                // Update last update time
+                const now = new Date();
+                document.getElementById('lastUpdate').textContent = 
+                    `Last update: ${now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
+                
+                // Render menu
+                renderMenu(data);
+                
+                // Show update notification
+                showUpdateNotification();
+                
+            } catch (error) {
+                console.error('Error loading menu:', error);
+                showError(`Failed to load menu: ${error.message}`);
+                
+                // Hide loading screen even on error
+                document.getElementById('loadingScreen').classList.add('hide');
+                
+                // Try to use cached data if available
+                if (menuData) {
+                    renderMenu(menuData);
                 }
-                return response.json();
-            })
-            .then(async data => {
-                console.log('JSON loaded successfully:', data);
-
-                // Set category headers
-                document.getElementById('left-category').innerText = data.header.left_category || "PIZZA";
-                document.getElementById('right-category').innerText = data.header.right_category || "CALZONES";
-
-                // Populate left menu (PIZZA)
-                let leftMenu = `
-                    <table>
-                        <tr class="size-header">
-                            <th></th>
-                            <th>LG 14"</th>
-                            <th>REG 10"</th>
-                        </tr>
-                        ${data.left_items && data.left_items.length > 0 ? data.left_items.map(item => `
-                            <tr class="item-row">
-                                <td>${item.name}</td>
-                                <td class="price">${item.lg_price || '-'}</td>
-                                <td class="price">${item.reg_price || '-'}</td>
-                            </tr>
-                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'}
-                    </table>
-                `;
-                document.getElementById('left-menu').innerHTML = leftMenu;
-
-                // Populate right menu (CALZONES)
-                let rightMenu = `
-                    <table>
-                        <tr class="size-header">
-                            <th></th>
-                            <th>LG 14"</th>
-                            <th>REG 10"</th>
-                        </tr>
-                        ${data.right_items && data.right_items.length > 0 ? data.right_items.map(item => `
-                            <tr class="item-row">
-                                <td>${item.name}</td>
-                                <td class="price">${item.lg_price || '-'}</td>
-                                <td class="price">${item.reg_price || '-'}</td>
-                            </tr>
-                        `).join('') : '<tr><td>No items available</td><td class="price">-</td><td class="price">-</td></tr>'}
-                    </table>
-                `;
-                document.getElementById('right-menu').innerHTML = rightMenu;
-
-                // Populate five image slots with cycling images
-                const imageRow = document.getElementById('imageRow');
-                let imageGroups = data.images || [];
-                const rotationSpeed = data.config?.image_rotation_speed || 5000; // Default to 5 seconds if not specified
-
-                if (imageGroups.length > 0) {
-                    // Create five image containers, each with a single img element
-                    let containersHTML = '';
-                    for (let i = 0; i < Math.min(5, imageGroups.length); i++) {
-                        containersHTML += `
-                            <div class="image-container">
-                                <img id="menuImage${i}" class="menu-image" alt="Menu Image">
-                            </div>
-                        `;
-                    }
-                    imageRow.innerHTML = containersHTML;
-
-                    // Validate and populate images for each container
-                    for (let i = 0; i < Math.min(5, imageGroups.length); i++) {
-                        const subArray = imageGroups[i];
-                        let validSubImages = [];
-                        for (let url of subArray) {
-                            if (url) {
-                                const isValid = await checkImage(url);
-                                if (isValid) {
-                                    validSubImages.push(isValid);
-                                } else {
-                                    console.log(`Skipping invalid image: ${url}`);
-                                }
-                            }
-                        }
-
-                        if (validSubImages.length > 0) {
-                            // Set initial image and start cycling
-                            const imageElement = document.getElementById(`menuImage${i}`);
-                            imageElement.src = validSubImages[0]; // Initial image
-                            startSlideshow(i, validSubImages, rotationSpeed);
-                        } else {
-                            const container = document.querySelector(`#imageRow .image-container:nth-child(${i + 1})`);
-                            container.innerHTML = '<p>No valid images</p>';
-                        }
-                    }
-                } else {
-                    imageRow.innerHTML = '<p>No valid images available</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error loading MenuLeft.json:', error);
-                const errorMessage = document.getElementById('errorMessage');
-                errorMessage.style.display = 'block';
-                errorMessage.innerText = `Failed to load menu data: ${error.message}. Check the console for details or ensure MenuLeft.json is accessible at https://raw.githubusercontent.com/Mecozz/Menu/main/MenuLeft.json.`;
-            });
-
-        function startSlideshow(containerIndex, validImages, rotationSpeed) {
-            let currentImageIndex = 0;
-            const imageElement = document.getElementById(`menuImage${containerIndex}`);
-            const slideshowInterval = setInterval(() => {
-                if (imageElement) {
-                    imageElement.style.opacity = '0'; // Fade out
-                    setTimeout(() => {
-                        // Move to the next valid image
-                        currentImageIndex = (currentImageIndex + 1) % validImages.length;
-                        imageElement.src = validImages[currentImageIndex];
-                        imageElement.style.opacity = '1'; // Fade in
-                    }, 500); // Match transition duration
-                }
-            }, rotationSpeed); // Use rotation speed from JSON
-
-            // Store the interval ID on the container to allow cleanup if needed
-            imageElement.dataset.intervalId = slideshowInterval;
+            }
         }
 
-        window.onbeforeunload = () => {
-            // Clean up intervals on page unload
-            const containers = document.querySelectorAll('.image-container img');
-            containers.forEach(img => {
-                const intervalId = img.dataset.intervalId;
-                if (intervalId) clearInterval(intervalId);
-            });
-        };
+        // Render menu data
+        function renderMenu(data) {
+            // Set category headers
+            document.getElementById('left-category').innerText = 
+                data.header?.left_category || "PIZZA";
+            document.getElementById('right-category').innerText = 
+                data.header?.right_category || "CALZONES";
+
+            // Populate left menu (PIZZA)
+            let leftMenu = `
+                <table>
+                    <tr class="size-header">
+                        <th></th>
+                        <th>LG 14"</th>
+                        <th>REG 10"</th>
+                    </tr>
+                    ${data.left_items && data.left_items.length > 0 ? 
+                        data.left_items.map(item => `
+                            <tr class="item-row ${item.available === false ? 'sold-out' : ''} ${item.special ? 'special-item' : ''}">
+                                <td>
+                                    ${item.name}
+                                    ${item.special ? '<span class="special-badge">SPECIAL</span>' : ''}
+                                </td>
+                                <td class="price">${formatPrice(item.lg_price)}</td>
+                                <td class="price">${formatPrice(item.reg_price)}</td>
+                            </tr>
+                        `).join('') : 
+                        '<tr><td colspan="3" style="text-align: center; color: #666;">No items available</td></tr>'
+                    }
+                </table>
+            `;
+            document.getElementById('left-menu').innerHTML = leftMenu;
+
+            // Populate right menu (CALZONES)
+            let rightMenu = `
+                <table>
+                    <tr class="size-header">
+                        <th></th>
+                        <th>LG 14"</th>
+                        <th>REG 10"</th>
+                    </tr>
+                    ${data.right_items && data.right_items.length > 0 ? 
+                        data.right_items.map(item => `
+                            <tr class="item-row ${item.available === false ? 'sold-out' : ''} ${item.special ? 'special-item' : ''}">
+                                <td>
+                                    ${item.name}
+                                    ${item.special ? '<span class="special-badge">SPECIAL</span>' : ''}
+                                </td>
+                                <td class="price">${formatPrice(item.lg_price)}</td>
+                                <td class="price">${formatPrice(item.reg_price)}</td>
+                            </tr>
+                        `).join('') : 
+                        '<tr><td colspan="3" style="text-align: center; color: #666;">No items available</td></tr>'
+                    }
+                </table>
+            `;
+            document.getElementById('right-menu').innerHTML = rightMenu;
+
+            // Load images
+            loadImages(data);
+        }
+
+        // Load and setup images
+        async function loadImages(data) {
+            // Clear existing intervals
+            imageIntervals.forEach(interval => clearInterval(interval));
+            imageIntervals = [];
+
+            const imageRow = document.getElementById('imageRow');
+            const imageGroups = data.images || [];
+            const rotationSpeed = data.config?.image_rotation_speed || CONFIG.imageRotationDefault;
+
+            if (imageGroups.length > 0) {
+                // Create five image containers
+                let containersHTML = '';
+                for (let i = 0; i < 5; i++) {
+                    containersHTML += `
+                        <div class="image-container">
+                            <div class="image-loading">Loading...</div>
+                            <img id="menuImage${i}" class="menu-image" alt="Menu Image" style="display: none;">
+                        </div>
+                    `;
+                }
+                imageRow.innerHTML = containersHTML;
+
+                // Load images for each container
+                for (let i = 0; i < Math.min(5, imageGroups.length); i++) {
+                    const subArray = imageGroups[i] || [];
+                    let validSubImages = [];
+                    
+                    // Validate images
+                    for (let url of subArray) {
+                        if (url) {
+                            const isValid = await checkImage(url);
+                            if (isValid) {
+                                validSubImages.push(isValid);
+                            }
+                        }
+                    }
+
+                    // Use placeholder if no valid images
+                    if (validSubImages.length === 0) {
+                        validSubImages = [PLACEHOLDER_IMAGE];
+                    }
+
+                    // Set initial image and start slideshow
+                    const imageElement = document.getElementById(`menuImage${i}`);
+                    const loadingElement = imageElement.parentElement.querySelector('.image-loading');
+                    
+                    imageElement.src = validSubImages[0];
+                    imageElement.style.display = 'block';
+                    loadingElement.style.display = 'none';
+                    
+                    // Start slideshow with staggered timing
+                    startSlideshow(i, validSubImages, rotationSpeed);
+                }
+
+                // Fill remaining slots with placeholder
+                for (let i = imageGroups.length; i < 5; i++) {
+                    const imageElement = document.getElementById(`menuImage${i}`);
+                    const loadingElement = imageElement.parentElement.querySelector('.image-loading');
+                    
+                    imageElement.src = PLACEHOLDER_IMAGE;
+                    imageElement.style.display = 'block';
+                    loadingElement.style.display = 'none';
+                }
+            } else {
+                imageRow.innerHTML = '<p style="color: #666;">No images available</p>';
+            }
+        }
+
+        // Start image slideshow with staggered timing
+        function startSlideshow(containerIndex, validImages, rotationSpeed) {
+            if (validImages.length <= 1) return;
+
+            let currentImageIndex = 0;
+            const imageElement = document.getElementById(`menuImage${containerIndex}`);
+            
+            // Stagger the start time for each container
+            const startDelay = containerIndex * 1000;
+            
+            setTimeout(() => {
+                const interval = setInterval(() => {
+                    if (imageElement) {
+                        imageElement.style.opacity = '0';
+                        setTimeout(() => {
+                            currentImageIndex = (currentImageIndex + 1) % validImages.length;
+                            imageElement.src = validImages[currentImageIndex];
+                            imageElement.style.opacity = '1';
+                        }, 500);
+                    }
+                }, rotationSpeed);
+                
+                imageIntervals.push(interval);
+            }, startDelay);
+        }
+
+        // Show update notification
+        function showUpdateNotification() {
+            const notification = document.getElementById('updateNotification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Show error message
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 10000);
+        }
+
+        // Setup auto refresh
+        function setupAutoRefresh() {
+            setInterval(() => {
+                if (isOnline) {
+                    console.log('Auto-refreshing menu...');
+                    loadMenu();
+                }
+            }, CONFIG.refreshInterval);
+        }
+
+        // Prevent TV sleep
+        function setupPreventSleep() {
+            setInterval(() => {
+                // Reload page to prevent TV from sleeping
+                if (document.hidden) return;
+                
+                // Create a tiny visual change to keep screen active
+                const body = document.body;
+                const currentOpacity = body.style.opacity || '1';
+                body.style.opacity = currentOpacity === '1' ? '0.9999' : '1';
+            }, CONFIG.preventSleepInterval);
+        }
+
+        // Toggle fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // F11 or F for fullscreen
+            if (e.key === 'F11' || e.key === 'f') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+            // R for refresh
+            if (e.key === 'r' && !e.ctrlKey) {
+                e.preventDefault();
+                loadMenu();
+            }
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            imageIntervals.forEach(interval => clearInterval(interval));
+        });
     </script>
 </body>
 </html>
