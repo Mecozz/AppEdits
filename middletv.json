@@ -1,117 +1,117 @@
 {
+  "header" : {
+    "category" : "SUBS & SANDWICHES",
+    "note" : "FRESH DAILY"
+  },
+  "title" : "JIMMY'S HOUSE OF PIZZA",
   "middle_items" : [
     {
       "reg_price" : "$0.00",
-      "name" : "MEATBALLS",
       "lg_price" : "$0.00",
-      "description" : ""
+      "description" : "",
+      "name" : "MEATBALLS"
     },
     {
-      "lg_price" : "$0.00",
       "reg_price" : "$0.00",
+      "lg_price" : "$0.00",
       "description" : "",
       "name" : "SAUSAGE"
     },
     {
+      "lg_price" : "$0.00",
       "name" : "HAM & CHEESE",
-      "description" : "",
-      "lg_price" : "$0.00",
-      "reg_price" : "$0.00"
-    },
-    {
-      "name" : "SALAMI",
-      "description" : "",
-      "reg_price" : "$0.00",
-      "lg_price" : "$0.00"
-    },
-    {
-      "description" : "",
-      "reg_price" : "$0.00",
-      "lg_price" : "$0.00",
-      "name" : "TUNA"
-    },
-    {
-      "name" : "CHEESEBURGER",
-      "lg_price" : "$0.00",
       "reg_price" : "$0.00",
       "description" : ""
     },
     {
-      "reg_price" : "$0.00",
       "description" : "",
+      "lg_price" : "$0.00",
+      "reg_price" : "$0.00",
+      "name" : "SALAMI"
+    },
+    {
+      "reg_price" : "$0.00",
+      "name" : "TUNA",
+      "lg_price" : "$0.00",
+      "description" : ""
+    },
+    {
+      "description" : "",
+      "name" : "CHEESEBURGER",
+      "lg_price" : "$0.00",
+      "reg_price" : "$0.00"
+    },
+    {
+      "description" : "",
+      "reg_price" : "$0.00",
       "name" : "B.L.T",
       "lg_price" : "$0.00"
     },
     {
-      "reg_price" : "$0.00",
       "name" : "PASTRAMI",
-      "lg_price" : "$0.00",
-      "description" : ""
-    },
-    {
-      "description" : "",
-      "lg_price" : "$0.00",
-      "reg_price" : "$0.00",
-      "name" : "GYROS"
-    },
-    {
-      "reg_price" : "$0.00",
-      "description" : "",
-      "lg_price" : "$0.00",
-      "name" : "VEAL PARMESAN"
-    },
-    {
-      "lg_price" : "$0.00",
-      "name" : "CHICKEN PARMESAN",
-      "reg_price" : "$0.00",
-      "description" : ""
-    },
-    {
-      "description" : "",
-      "lg_price" : "$0.00",
-      "reg_price" : "$0.00",
-      "name" : "VEGETARIAN"
-    },
-    {
-      "name" : "ROAST BEEF",
       "reg_price" : "$0.00",
       "lg_price" : "$0.00",
       "description" : ""
     },
     {
       "description" : "",
-      "name" : "TURKEY",
       "lg_price" : "$0.00",
+      "name" : "GYROS",
       "reg_price" : "$0.00"
     },
     {
-      "name" : "SAUSAGE & MEATBALLS",
+      "lg_price" : "$0.00",
+      "name" : "VEAL PARMESAN",
       "reg_price" : "$0.00",
+      "description" : ""
+    },
+    {
       "description" : "",
+      "lg_price" : "$0.00",
+      "name" : "CHICKEN PARMESAN",
+      "reg_price" : "$0.00"
+    },
+    {
+      "description" : "",
+      "reg_price" : "$0.00",
+      "name" : "VEGETARIAN",
       "lg_price" : "$0.00"
     },
     {
-      "reg_price" : "$0.00",
-      "name" : "COMBO ITALIAN",
+      "name" : "ROAST BEEF",
+      "lg_price" : "$0.00",
       "description" : "",
-      "lg_price" : "$0.00"
+      "reg_price" : "$0.00"
+    },
+    {
+      "lg_price" : "$0.00",
+      "description" : "",
+      "name" : "TURKEY",
+      "reg_price" : "$0.00"
     },
     {
       "lg_price" : "$0.00",
       "reg_price" : "$0.00",
+      "name" : "SAUSAGE & MEATBALLS",
+      "description" : ""
+    },
+    {
+      "description" : "",
+      "name" : "COMBO ITALIAN",
+      "reg_price" : "$0.00",
+      "lg_price" : "$0.00"
+    },
+    {
       "name" : "LAMB GRINDER",
+      "lg_price" : "$0.00",
+      "reg_price" : "$0.00",
       "description" : ""
     },
     {
       "name" : "EXTRA CHEESE",
-      "lg_price" : "$0.00",
       "reg_price" : "$0.00",
+      "lg_price" : "$0.00",
       "description" : ""
     }
-  ],
-  "header" : {
-    "note" : "FRESH DAILY",
-    "category" : "SUBS & SANDWICHES"
-  },
-  "title" : "JIMMY'S HOUSE OF PIZZA"
+  ]
 }
